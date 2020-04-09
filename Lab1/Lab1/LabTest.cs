@@ -13,6 +13,7 @@ namespace Lab1
         {
             Console.WriteLine("Привет! Тестирую git ignore еще раз!");
             Console.WriteLine("Надеюсь сейчас все взлетит!");
+            Console.WriteLine("Взлети пожалуйста!!!");
             Console.ReadKey();
         }
     }
