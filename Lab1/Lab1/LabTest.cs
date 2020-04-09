@@ -15,6 +15,7 @@ namespace Lab1
             Console.WriteLine("Надеюсь сейчас все взлетит!");
             Console.WriteLine("Взлети пожалуйста!!!");
             Console.WriteLine("Пожалуйста, заработай!");
+            Console.WriteLine("Надеюсь, сейчас все получится");
             Console.ReadKey();
         }
     }
