@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassLibrary;
+using static System.Console;
 
 namespace Lab1
 {
@@ -11,7 +12,7 @@ namespace Lab1
     {
         static void Main(string[] args)
         {
-
+            WriteLine("Привет!");
         }
     }
 }
