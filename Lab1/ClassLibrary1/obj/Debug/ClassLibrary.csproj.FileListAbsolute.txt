@@ -1,5 +1,0 @@
-D:\Основы ООП\SuhorukovVA\Lab1\ClassLibrary1\bin\Debug\ClassLibrary.dll
-D:\Основы ООП\SuhorukovVA\Lab1\ClassLibrary1\bin\Debug\ClassLibrary.pdb
-D:\Основы ООП\SuhorukovVA\Lab1\ClassLibrary1\obj\Debug\ClassLibrary.csprojAssemblyReference.cache
-D:\Основы ООП\SuhorukovVA\Lab1\ClassLibrary1\obj\Debug\ClassLibrary.dll
-D:\Основы ООП\SuhorukovVA\Lab1\ClassLibrary1\obj\Debug\ClassLibrary.pdb
