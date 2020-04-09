@@ -98,6 +98,8 @@ namespace ClassLibrary
         /// </summary>
         public Person()
         {
+            //TODO: Дублируется присваивание, можно убрать дублирование
+            //TODO: через конструктор, который ниже
             FirstName = "Vasya";
             LastName = "Petechkin";
             Age = 18;

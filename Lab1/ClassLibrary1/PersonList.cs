@@ -87,7 +87,6 @@ namespace ClassLibrary
         /// <returns>Объект класса Человек</returns>
         public Person GetPersonByIndex(int indexOfPerson)
         {
-            //TODO: Дубль (исправил, добавил метод IsIndexOfPersonCorrect)
             CheckIndexOfPerson(indexOfPerson);
             return _people[indexOfPerson];
         }
@@ -99,7 +98,6 @@ namespace ClassLibrary
         /// Человек</param>
         public void DeletePersonByIndex(int indexOfPerson)
         {
-            //TODO: Дубль (исправил, добавил метод CheckIndexOfPerson)
             CheckIndexOfPerson(indexOfPerson);
             var currentPeople = _people;
             var newIndex = 0;
