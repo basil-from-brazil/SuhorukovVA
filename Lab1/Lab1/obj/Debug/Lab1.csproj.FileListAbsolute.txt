@@ -1,0 +1,27 @@
+D:\Основы ООП\Lab1 Сухоруков\Lab1\bin\Debug\Lab1.exe.config
+D:\Основы ООП\Lab1 Сухоруков\Lab1\bin\Debug\Lab1.exe
+D:\Основы ООП\Lab1 Сухоруков\Lab1\bin\Debug\Lab1.pdb
+D:\Основы ООП\Lab1 Сухоруков\Lab1\bin\Debug\ClassLibrary1.dll
+D:\Основы ООП\Lab1 Сухоруков\Lab1\bin\Debug\ClassLibrary1.pdb
+D:\Основы ООП\Lab1 Сухоруков\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
+D:\Основы ООП\Lab1 Сухоруков\Lab1\obj\Debug\Lab1.csproj.CopyComplete
+D:\Основы ООП\Lab1 Сухоруков\Lab1\obj\Debug\Lab1.exe
+D:\Основы ООП\Lab1 Сухоруков\Lab1\obj\Debug\Lab1.pdb
+D:\Основы ООП\Lab1 27 февраля\Lab1\bin\Debug\Lab1.exe.config
+D:\Основы ООП\Lab1 27 февраля\Lab1\bin\Debug\Lab1.exe
+D:\Основы ООП\Lab1 27 февраля\Lab1\bin\Debug\Lab1.pdb
+D:\Основы ООП\Lab1 27 февраля\Lab1\bin\Debug\ClassLibrary.dll
+D:\Основы ООП\Lab1 27 февраля\Lab1\bin\Debug\ClassLibrary.pdb
+D:\Основы ООП\Lab1 27 февраля\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
+D:\Основы ООП\Lab1 27 февраля\Lab1\obj\Debug\Lab1.csproj.CopyComplete
+D:\Основы ООП\Lab1 27 февраля\Lab1\obj\Debug\Lab1.exe
+D:\Основы ООП\Lab1 27 февраля\Lab1\obj\Debug\Lab1.pdb
+D:\Основы ООП\Lab1 12 марта\Lab1\bin\Debug\Lab1.exe.config
+D:\Основы ООП\Lab1 12 марта\Lab1\bin\Debug\Lab1.exe
+D:\Основы ООП\Lab1 12 марта\Lab1\bin\Debug\Lab1.pdb
+D:\Основы ООП\Lab1 12 марта\Lab1\bin\Debug\ClassLibrary.dll
+D:\Основы ООП\Lab1 12 марта\Lab1\bin\Debug\ClassLibrary.pdb
+D:\Основы ООП\Lab1 12 марта\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
+D:\Основы ООП\Lab1 12 марта\Lab1\obj\Debug\Lab1.csproj.CopyComplete
+D:\Основы ООП\Lab1 12 марта\Lab1\obj\Debug\Lab1.exe
+D:\Основы ООП\Lab1 12 марта\Lab1\obj\Debug\Lab1.pdb
