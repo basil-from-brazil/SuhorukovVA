@@ -1,0 +1,9 @@
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\bin\Debug\Lab1.exe.config
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\bin\Debug\Lab1.exe
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\bin\Debug\Lab1.pdb
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\bin\Debug\ClassLibrary.dll
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\bin\Debug\ClassLibrary.pdb
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\obj\Debug\Lab1.csproj.CopyComplete
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\obj\Debug\Lab1.exe
+D:\Основы ООП\SuhorukovVA\Lab1\Lab1\obj\Debug\Lab1.pdb
