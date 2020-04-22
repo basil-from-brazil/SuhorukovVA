@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace ClassLibrary
 {
@@ -44,7 +46,7 @@ namespace ClassLibrary
             set
             {
                 CheckFirstAndLastName(value);
-                _firstName = value;
+                _firstName = ConvertToRightRegister(value);
             }
         }
 
@@ -60,7 +62,7 @@ namespace ClassLibrary
             set
             {
                 CheckFirstAndLastName(value);
-                _lastName = value;
+                _lastName = ConvertToRightRegister(value);
             }
         }
 
@@ -96,14 +98,11 @@ namespace ClassLibrary
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public Person()
+        public Person() : this("Vasya","Petechkin",18,Genders.Male)
         {
             //TODO: Дублируется присваивание, можно убрать дублирование
             //TODO: через конструктор, который ниже
-            FirstName = "Vasya";
-            LastName = "Petechkin";
-            Age = 18;
-            Gender = Genders.Male;
+            //исправил с использованием слова this
         }
 
         /// <summary>
@@ -137,6 +136,42 @@ namespace ClassLibrary
                 throw new ArgumentNullException(
                     $"{nameof(value)} is null or empty!");
             }
+            else if (!IsFirstAndLastNameCorrect(value))
+            {
+                throw new FormatException($"{nameof(value)} can only " +
+                    $"contain Russian or Latin symbols!");
+            }
+        }
+
+        /// <summary>
+        /// Проверка имени/фамилии Человека на соответствие шаблону
+        /// </summary>
+        /// <param name="value">Фамилия или имя для проверки</param>
+        /// <returns>Булевое верно/неверно в зависимости от 
+        /// результатов проверки</returns>
+        private bool IsFirstAndLastNameCorrect(string value)
+        {
+            var regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-)?([A-Za-z]|" +
+                "[А-Яа-я])+))?$");
+            if (!regex.IsMatch(value))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Преобразование букв фамилии/имени в правильный регистр: 
+        /// первая буква заглавная, остальные прописные 
+        /// </summary>
+        /// <param name="value">Фамилия или имя для преобразования</param>
+        /// <returns>Фамилия или имя, преобрахованные 
+        /// в правильный регистр</returns>
+        private string ConvertToRightRegister(string value)
+        {
+            return CultureInfo.InvariantCulture.TextInfo.
+                ToTitleCase(value.ToLower());
         }
 
         /// <summary>
