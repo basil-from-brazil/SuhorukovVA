@@ -77,10 +77,11 @@ namespace ClassLibrary
             }
             set
             {
-                if (value <0 || value > 122)
+                //900 лет - возраст Йоды
+                if (value <0 || value > 900)
                 {
                     throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} must be between 0 and 122.");
+                        $"{nameof(value)} must be between 0 and 900.");
                 }
                 _age = value;
             }

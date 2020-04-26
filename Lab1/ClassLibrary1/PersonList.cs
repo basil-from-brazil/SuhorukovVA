@@ -54,6 +54,18 @@ namespace ClassLibrary
         }
 
         /// <summary>
+        /// Добавление нескольких людей в список
+        /// </summary>
+        /// <param name="people">Массив добавляемых людей</param>
+        public void AddSeveralPeople (Person[] people)
+        {
+            foreach (Person person in people)
+            {
+                AddPerson(person);
+            }
+        }
+
+        /// <summary>
         /// Удаление человека из списка
         /// </summary>
         /// <param name="person">Экземпляр класса Человек</param>
