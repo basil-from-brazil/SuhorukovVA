@@ -11,7 +11,7 @@ namespace ClassLibrary
     /// </summary>
     public class PersonList
     {
-
+        
         /// <summary>
         /// Список людей
         /// </summary>
@@ -91,7 +91,7 @@ namespace ClassLibrary
             throw new PersonNotFoundException("This person does not exist " +
                 "in this list. Please try again.");
         }
-        
+
         /// <summary>
         /// Получение объекта класса Человек по его индексу
         /// </summary>
@@ -120,8 +120,8 @@ namespace ClassLibrary
                 {
                     _people[newIndex] = currentPeople[i];
                     newIndex = newIndex + 1;
-                }
-            }
+                }                                        
+            }                                                                  
             
         }
 

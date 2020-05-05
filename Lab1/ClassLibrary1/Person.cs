@@ -16,17 +16,17 @@ namespace ClassLibrary
         #region Поля класса Человек
 
         /// <summary>
-        /// Имя человека
+        /// Имя человека/существа
         /// </summary>
         private string _firstName;
 
         /// <summary>
-        /// Фамилия человека
+        /// Фамилия человека/существа
         /// </summary>
         private string _lastName;
 
         /// <summary>
-        /// Возраст человека
+        /// Возраст человека/существа
         /// </summary>
         private int _age;
 
@@ -35,7 +35,7 @@ namespace ClassLibrary
         #region Свойства класса Человек
 
         /// <summary>
-        /// Имя человека
+        /// Имя человека/существа
         /// </summary>
         public string FirstName
         {
@@ -51,7 +51,7 @@ namespace ClassLibrary
         }
 
         /// <summary>
-        /// Фамилия человека
+        /// Фамилия человека/существа
         /// </summary>
         public string LastName
         {
@@ -67,7 +67,7 @@ namespace ClassLibrary
         }
 
         /// <summary>
-        /// Возраст человека
+        /// Возраст человека/существа
         /// </summary>
         public int Age
         {
@@ -101,9 +101,6 @@ namespace ClassLibrary
         /// </summary>
         public Person() : this("Vasya","Petechkin",18,Genders.Male)
         {
-            //TODO: Дублируется присваивание, можно убрать дублирование
-            //TODO: через конструктор, который ниже
-            //исправил с использованием слова this
         }
 
         /// <summary>
@@ -181,8 +178,8 @@ namespace ClassLibrary
         /// <returns>Фамилия, имя, возраст, пол объекта Человек</returns>
         public string GetPersonInfo()
         {
-            return $"Имя: {FirstName}\n Фамилия: {LastName}\n " +
-                $"Возраст: {Age}\n Пол: {Gender}";
+            return $"Имя: {FirstName}\nФамилия: {LastName}\n" +
+                $"Возраст: {Age}\nПол: {Gender}";
         }
         #endregion
     }
