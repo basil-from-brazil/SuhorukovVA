@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,6 +70,11 @@ namespace Lab1
             sith.Clear();
             DisplayListsOfPeople(jedi, sith);
 
+            Console.WriteLine("Adding to the 2nd list " +
+                "a sith from keyboard...");
+            sith.AddPerson(GetNewPersonFromKeyBoard());
+            DisplayListsOfPeople(jedi, sith);
+
             Console.WriteLine("This is the end of Lab 1\n" +
                 "May the Force be with you, young padawan!");
             Console.ReadKey();
@@ -103,6 +109,73 @@ namespace Lab1
                 }
             }
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Ввод данных о человеке/существе с клавиатуры
+        /// </summary>
+        /// <returns>Созданный экземпляр класса Человек</returns>
+        public static Person GetNewPersonFromKeyBoard()
+        {
+            var newPersonFromKeyBoard = new Person();
+            var actions = new List<Action>()
+            {
+                new Action(() =>
+                {
+                    Console.Write("FirstName: ");
+                    newPersonFromKeyBoard.FirstName = Console.ReadLine();
+                }),
+                new Action(() =>
+                {
+                    Console.Write("LastName: ");
+                    newPersonFromKeyBoard.LastName = Console.ReadLine();
+                }),
+                new Action(() =>
+                {
+                    Console.Write("Age: ");
+                    newPersonFromKeyBoard.Age = int.Parse(Console.ReadLine());
+                }),
+                new Action(() =>
+                {
+                    Console.Write("Gender (Male/Female): ");
+                    var genderFromKeyBoard = Console.ReadLine();
+                    genderFromKeyBoard = CultureInfo.InvariantCulture.
+                    TextInfo.ToTitleCase(genderFromKeyBoard.ToLower());
+                    newPersonFromKeyBoard.Gender = (Genders)Enum.Parse
+                    (typeof(Genders),genderFromKeyBoard);
+
+                })
+            };
+            actions.ForEach(SetValue);
+            return newPersonFromKeyBoard;
+        }
+
+        /// <summary>
+        /// Установить значение свойствам экземпляра класса Человек
+        /// </summary>
+        /// <param name="action">Делегат Action</param>
+        public static void SetValue(Action action)
+        {
+            while (true)
+            {
+                try
+                {
+                    action.Invoke();
+                    return;
+                }
+                catch (ArgumentException argumentException)
+                {
+                    Console.WriteLine(argumentException.Message);
+                }
+                catch (FormatException formatException)
+                {
+                    Console.WriteLine(formatException.Message);
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+            }
         }
     }
 }

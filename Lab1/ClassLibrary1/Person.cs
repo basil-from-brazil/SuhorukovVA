@@ -81,7 +81,7 @@ namespace ClassLibrary
                 if (value <0 || value > 900)
                 {
                     throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} must be between 0 and 900.");
+                        "The age must be between 0 and 900 years.");
                 }
                 _age = value;
             }
@@ -132,12 +132,12 @@ namespace ClassLibrary
             if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentNullException(
-                    $"{nameof(value)} is null or empty!");
+                    "First/LastName is null or empty!");
             }
             else if (!IsFirstAndLastNameCorrect(value))
             {
-                throw new FormatException($"{nameof(value)} can only " +
-                    $"contain Russian or Latin symbols!");
+                throw new FormatException("First/LastName can only " +
+                    "contain Russian or Latin symbols!");
             }
         }
 
@@ -178,8 +178,8 @@ namespace ClassLibrary
         /// <returns>Фамилия, имя, возраст, пол объекта Человек</returns>
         public string GetPersonInfo()
         {
-            return $"Имя: {FirstName}\nФамилия: {LastName}\n" +
-                $"Возраст: {Age}\nПол: {Gender}";
+            return $"FirstName: {FirstName}\nLastName: {LastName}\n" +
+                $"Age: {Age}\nGender: {Gender}";
         }
         #endregion
     }
