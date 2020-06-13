@@ -173,10 +173,11 @@ namespace Lab1
                         || exception is FormatException)
                     {
                         Console.WriteLine(exception.Message);
-                        break;
                     }
-
-                   throw;
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
         }
