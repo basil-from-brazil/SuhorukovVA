@@ -28,6 +28,12 @@ namespace Lab1
             var jedi = new PersonList();
             var sith = new PersonList();
 
+            var listsOfPeople = new PersonList[]
+            {
+                jedi,
+                sith
+            };
+
             var peopleForFirstList = new Person[]
             {
                 new Person("Luke", "Skywalker", 53, Genders.Male),
@@ -42,42 +48,39 @@ namespace Lab1
                 new Person("Kylo", "Ren", 30, Genders.Male)
             };
 
-            //TODO: Добавить пользовательский ввод
-            //TODO: Статическая генерация персоны
-
             jedi.AddSeveralPeople(peopleForFirstList);
             sith.AddSeveralPeople(peopleForSecondList);
 
             Console.WriteLine("2 lists of people have been created!");
-            DisplayListsOfPeople(jedi, sith);
+            DisplayListsOfPeople(listsOfPeople);
 
             Console.WriteLine("Adding a new jedi to the first list...");
             var newJedi = new Person("Ahsoka", "Tano", 16, Genders.Female);
             jedi.AddPerson(newJedi);
-            DisplayListsOfPeople(jedi, sith);
+            DisplayListsOfPeople(listsOfPeople);
 
             Console.WriteLine("Copying the 2nd person from the 1st list " +
                 "to the end of 2nd list...");
             sith.AddPerson(jedi.GetPersonByIndex(1));
-            DisplayListsOfPeople(jedi, sith);
+            DisplayListsOfPeople(listsOfPeople);
 
             Console.WriteLine("Deleting the 2nd person from " +
                 "the 1st list...");
             jedi.DeletePersonByIndex(1);
-            DisplayListsOfPeople(jedi, sith);
+            DisplayListsOfPeople(listsOfPeople);
 
             Console.WriteLine("Clearing the 2nd list...");
             sith.Clear();
-            DisplayListsOfPeople(jedi, sith);
+            DisplayListsOfPeople(listsOfPeople);
 
             Console.WriteLine("Adding to the 2nd list " +
                 "a sith from keyboard...");
             sith.AddPerson(GetNewPersonFromKeyBoard());
-            DisplayListsOfPeople(jedi, sith);
+            DisplayListsOfPeople(listsOfPeople);
 
             Console.WriteLine("Adding to the 2nd list a random sith...");
             sith.AddPerson(Person.GetRandomSith());
-            DisplayListsOfPeople(jedi, sith);
+            DisplayListsOfPeople(listsOfPeople);
 
             Console.WriteLine("This is the end of Lab 1\n" +
                 "May the Force be with you, young padawan!");
@@ -89,15 +92,9 @@ namespace Lab1
         /// </summary>
         /// <param name="firstListOfPeople">Первый список людей</param>
         /// <param name="secondListOfPeople">Второй список людей</param>
-        public static void DisplayListsOfPeople(PersonList firstListOfPeople,
-            PersonList secondListOfPeople)
+        public static void DisplayListsOfPeople(PersonList[] listsOfPeople)
         {
             Console.ReadKey();
-            var listsOfPeople = new PersonList[]
-            {
-               firstListOfPeople,
-               secondListOfPeople
-            };
 
             for (int i = 0; i < listsOfPeople.Length; i++)
             {

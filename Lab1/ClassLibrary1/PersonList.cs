@@ -121,7 +121,7 @@ namespace ClassLibrary
                     _people[newIndex] = currentPeople[i];
                     newIndex = newIndex + 1;
                 }                                        
-            }                                                                  
+            }                                                             
             
         }
 
