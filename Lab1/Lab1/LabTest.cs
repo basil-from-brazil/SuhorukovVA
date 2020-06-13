@@ -75,6 +75,10 @@ namespace Lab1
             sith.AddPerson(GetNewPersonFromKeyBoard());
             DisplayListsOfPeople(jedi, sith);
 
+            Console.WriteLine("Adding to the 2nd list a random sith...");
+            sith.AddPerson(Person.GetRandomSith());
+            DisplayListsOfPeople(jedi, sith);
+
             Console.WriteLine("This is the end of Lab 1\n" +
                 "May the Force be with you, young padawan!");
             Console.ReadKey();
@@ -163,17 +167,16 @@ namespace Lab1
                     action.Invoke();
                     return;
                 }
-                catch (ArgumentException argumentException)
-                {
-                    Console.WriteLine(argumentException.Message);
-                }
-                catch (FormatException formatException)
-                {
-                    Console.WriteLine(formatException.Message);
-                }
                 catch (Exception exception)
                 {
-                    Console.WriteLine(exception.Message);
+                    if (exception is ArgumentException
+                        || exception is FormatException)
+                    {
+                        Console.WriteLine(exception.Message);
+                        break;
+                    }
+
+                   throw;
                 }
             }
         }

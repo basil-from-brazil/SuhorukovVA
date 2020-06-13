@@ -181,6 +181,31 @@ namespace ClassLibrary
             return $"FirstName: {FirstName}\nLastName: {LastName}\n" +
                 $"Age: {Age}\nGender: {Gender}";
         }
+
+        /// <summary>
+        /// Создание случайного ситха (экземпляра класса Person)
+        /// </summary>
+        /// <returns>Случайно созданный ситх (экземпляр класса Person)</returns>
+        public static Person GetRandomSith()
+        {
+            var random = new Random();
+            var randomSith = new Person();
+            randomSith.FirstName = "Darth";
+
+            var allLastNames = Properties.Resource.LastNamesAndGenders.
+                Split('\n');
+            var indexOfLastNameAndGender = random.
+                Next(0, allLastNames.Length - 1);
+            var randomElement = allLastNames[indexOfLastNameAndGender];
+
+            var lastNameAndGender = randomElement.Split('\t');
+            randomSith.LastName = lastNameAndGender[0];
+            randomSith.Gender = (Genders)Enum.Parse
+                (typeof(Genders),lastNameAndGender[1]);
+            randomSith.Age = random.Next(0, 900);
+
+            return randomSith;
+        }
         #endregion
     }
 }

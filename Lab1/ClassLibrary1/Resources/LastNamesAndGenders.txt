@@ -1,0 +1,16 @@
+﻿Bane	Male
+Zannah	Female
+Cognus	Female
+Millennial	Male
+Vectivus	Male
+Guile	Male
+Gravid	Male
+Gean	Female
+Ramage	Male
+Tenebrous	Male
+Venamis	Male
+Plagueis	Male
+Sidious	Male
+Maul	Male
+Tyranus	Male
+Vader	Male
