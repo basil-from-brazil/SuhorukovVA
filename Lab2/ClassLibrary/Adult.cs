@@ -152,7 +152,7 @@ namespace ClassLibrary
                     "digits respectively!");
             }
 
-            if (!int.TryParse(valueForCheck, out int result))
+            if (!int.TryParse(valueForCheck, out _))
             {
                 throw new FormatException("The series/number of passport " +
                     "can only contain numbers and not other symbols!");

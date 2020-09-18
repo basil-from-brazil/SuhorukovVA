@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="LabTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomPerson.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -57,7 +58,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\CompaniesNames.txt" />
     <Content Include="Resources\FirstNamesAndGenders.txt" />
+    <Content Include="Resources\Kindergartens.txt" />
+    <Content Include="Resources\LastNames.txt" />
+    <Content Include="Resources\Schools.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
