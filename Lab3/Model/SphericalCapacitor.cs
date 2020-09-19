@@ -59,30 +59,9 @@ namespace Model
             }
         }
 
-        ///// <summary>
-        ///// Конструктор класса Сферический конденсатор
-        ///// </summary>
-        ///// <param name="exterRadiusOfSphere">Внешний радиус 
-        ///// сферического конденсатора</param>
-        ///// <param name="interRadiusOfSphere">Внутренний радиус 
-        ///// сферического конденсатора</param>
-        ///// <param name="dielectricPermittivity">Диэлектрическая 
-        ///// проницаемость диэлектрика конденсатора</param>
-        //public SphericalCapacitor (double exterRadiusOfSphere, 
-        //    double interRadiusOfSphere, double dielectricPermittivity)
-        //{
-        //    ExterRadiusOfSphere = exterRadiusOfSphere;
-        //    InterRadiusOfSphere = interRadiusOfSphere;
-        //    DielectricPermittivity = dielectricPermittivity;
-        //}
-
-        ///// <summary>
-        ///// Конструктор класса Сферический конденсатор по умолчанию
-        ///// </summary>
-        //public SphericalCapacitor() : this(18, 12, 3.8)
-        //{
-        //}
-
+        /// <summary>
+        /// Емкость сефрического конденсатора
+        /// </summary>
         public override double Capacity
         {
             get

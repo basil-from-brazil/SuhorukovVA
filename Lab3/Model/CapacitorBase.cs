@@ -22,7 +22,6 @@ namespace Model
         /// </summary>
         private double _dielectricPermittivity;
 
-        //TODO: RSDN (исправил)
         /// <summary>
         /// Диэлектрическая проницаемость диэлектрика конденсатора
         /// </summary>

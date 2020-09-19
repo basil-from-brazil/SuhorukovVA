@@ -79,38 +79,6 @@ namespace Model
             }
         }
 
-        ///// <summary>
-        ///// Конструктор класса Цилиндрический конденсатор
-        ///// </summary>
-        ///// <param name="heightOfCylinder">Высота цилиндрического 
-        ///// конденсатора</param>
-        ///// <param name="exterRadiusOfCylinder">Внешний радиус 
-        ///// цилиндрического конденсатора</param>
-        ///// <param name="interRadiusOfCylinder">Внутренний радиус 
-        ///// цилиндрического конденсатора</param>
-        ///// <param name="dielectricPermittivity">Диэлектрическая 
-        ///// проницаемость диэлектрика конденсатора</param>
-        //public CylindricalCapacitor(double heightOfCylinder, 
-        //    double exterRadiusOfCylinder, double interRadiusOfCylinder, 
-        //    double dielectricPermittivity)
-        //{
-        //    HeightOfCylinder = heightOfCylinder;
-        //    ExterRadiusOfCylinder = exterRadiusOfCylinder;
-        //    InterRadiusOfCylinder = interRadiusOfCylinder;
-        //    DielectricPermittivity = dielectricPermittivity;
-        //}
-
-        /// <summary>
-        /// Конструктор класса Цилиндрический конденсатор по умолчанию
-        /// </summary>
-        //public CylindricalCapacitor() : this(12, 18, 6, 3.8)
-        //{
-        //    HeightOfCylinder = 12;
-        //    ExterRadiusOfCylinder = 18;
-        //    InterRadiusOfCylinder = 6;
-        //    DielectricPermittivity = 3.8;
-        //}
-
         /// <summary>
         /// Емкость цилиндрического конденсатора
         /// </summary>

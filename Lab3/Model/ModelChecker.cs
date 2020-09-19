@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: RSDN naming (исправил)
     /// <summary>
     /// Класс для проверки значений, которые присваются полям класса 
     /// Конденсатор
@@ -50,14 +49,7 @@ namespace Model
         /// <returns></returns>
         public static bool IsRadiusEntered(double radius)
         {
-            if (radius != 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return radius != 0.0;
         }
     }
 }

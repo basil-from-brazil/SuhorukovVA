@@ -26,7 +26,6 @@ namespace Lab3
                     Console.WriteLine("Plate Area: ");
                     newPlateCapacitorFromKeyBoard.PlateArea = 
                         ReadFromConsoleAndParse();
-                        //TODO: Duplication (исправил)
                 }),
                 new Action(() =>
                 {

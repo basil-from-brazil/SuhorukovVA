@@ -50,30 +50,7 @@ namespace Model
                 _gapBetweenPlates = ModelChecker.ValueChecker(value);
             }
         }
-
-        ///// <summary>
-        ///// Конструктор класса Плоский конденсатор
-        ///// </summary>
-        ///// <param name="plateArea">Площадь обкладок конденсатора</param>
-        ///// <param name="gapBetweenPlates">Зазор между обкладками 
-        ///// конденсатора</param>
-        ///// <param name="dielectricPermittivity">Диэлектрическая 
-        ///// проницаемость диэлектрика конденсатора</param>
-        //public PlateCapacitor(double plateArea, double gapBetweenPlates, 
-        //    double dielectricPermittivity)
-        //{
-        //    PlateArea = plateArea;
-        //    GapBetweenPlates = gapBetweenPlates;
-        //    DielectricPermittivity = dielectricPermittivity;
-        //}
-
-        ///// <summary>
-        ///// Конструктор класса Плоский конденсатор по умолчанию
-        ///// </summary>
-        //public PlateCapacitor() : this(12, 12, 3.8)
-        //{
-        //}
-
+        
         /// <summary>
         /// Емкость плоского конденсатора
         /// </summary>
