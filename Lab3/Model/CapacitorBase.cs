@@ -22,7 +22,7 @@ namespace Model
         /// </summary>
         private double _dielectricPermittivity;
 
-        private protected double DielectricPermittivity
+        public double DielectricPermittivity
         {
             get
             {

@@ -67,6 +67,13 @@ namespace Model
         }
 
         /// <summary>
+        /// Конструктор класса Плоский конденсатор по умолчанию
+        /// </summary>
+        public PlateCapacitor() : this(12, 12, 3.8)
+        {
+        }
+
+        /// <summary>
         /// Емкость плоского конденсатора
         /// </summary>
         public override double Capacity

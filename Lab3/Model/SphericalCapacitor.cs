@@ -68,6 +68,13 @@ namespace Model
             DielectricPermittivity = dielectricPermittivity;
         }
 
+        /// <summary>
+        /// Конструктор класса Сферический конденсатор по-умолчанию
+        /// </summary>
+        public SphericalCapacitor() : this(18, 12, 3.8)
+        {
+        }
+
         public override double Capacity
         {
             get

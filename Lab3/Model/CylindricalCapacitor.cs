@@ -93,6 +93,13 @@ namespace Model
         }
 
         /// <summary>
+        /// Конструктор класса Цилиндрический конденсатор по умолчанию
+        /// </summary>
+        public CylindricalCapacitor() : this(12, 18, 6, 3.8)
+        {
+        }
+
+        /// <summary>
         /// Емкость цилиндрического конденсатора
         /// </summary>
         public override double Capacity
@@ -101,9 +108,9 @@ namespace Model
             {
                 ModelCheck.RadiusCheck(InterRadiusOfCylinder, ExterRadiusOfCylinder);
                 return 2 * Math.PI * DielectricPermittivity * 
-                    VACUUMPERMITTIVITY * HeightOfCylinder / 
-                    (Math.Log(ExterRadiusOfCylinder / 
-                    InterRadiusOfCylinder));
+                VACUUMPERMITTIVITY * HeightOfCylinder / 
+                (Math.Log(ExterRadiusOfCylinder / 
+                InterRadiusOfCylinder));
             }
              
         }
