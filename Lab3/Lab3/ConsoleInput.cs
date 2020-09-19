@@ -25,19 +25,20 @@ namespace Lab3
                 {
                     Console.WriteLine("Plate Area: ");
                     newPlateCapacitorFromKeyBoard.PlateArea = 
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        ReadFromConsoleAndParse();
+                        //TODO: Duplication (исправил)
                 }),
                 new Action(() =>
                 {
                     Console.WriteLine("Gap Between PLates: ");
-                    newPlateCapacitorFromKeyBoard.GapBetweenPlates = 
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                    newPlateCapacitorFromKeyBoard.GapBetweenPlates =
+                        ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
                     Console.WriteLine("Dielectric Permittivity: ");
-                    newPlateCapacitorFromKeyBoard.DielectricPermittivity = 
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                    newPlateCapacitorFromKeyBoard.DielectricPermittivity =
+                        ReadFromConsoleAndParse();
                 })
             };
             actions.ForEach(SetValue);
@@ -52,36 +53,36 @@ namespace Lab3
         public static CylindricalCapacitor 
             GetNewCylindricalCapacitorFromKeyboard()
         {
-            var newCylindricalCapacitorFromKeyBoard = new 
-                CylindricalCapacitor();
+            var newCylindricalCapacitorFromKeyBoard = 
+                new CylindricalCapacitor();
             var actions = new List<Action>()
             {
                 new Action(() =>
                 {
                     Console.WriteLine("Height Of Cylinder: ");
                     newCylindricalCapacitorFromKeyBoard.HeightOfCylinder =
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
                     Console.WriteLine("External Radius Of Cylinder : ");
                     newCylindricalCapacitorFromKeyBoard.
-                    ExterRadiusOfCylinder =
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        ExterRadiusOfCylinder =
+                        ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
                     Console.WriteLine("Internal Radius Of Cylinder : ");
                     newCylindricalCapacitorFromKeyBoard.
-                    InterRadiusOfCylinder =
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        InterRadiusOfCylinder =
+                        ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
                     Console.WriteLine("Dielectric Permittivity: ");
                     newCylindricalCapacitorFromKeyBoard.
-                    DielectricPermittivity =
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        DielectricPermittivity =
+                        ReadFromConsoleAndParse();
                 })
             };
             actions.ForEach(SetValue);
@@ -96,34 +97,42 @@ namespace Lab3
         public static SphericalCapacitor
             GetNewSphericalCapacitorFromKeyboard()
         {
-            var newShericalCapacitorFromKeyBoard = new
-                SphericalCapacitor();
+            var newShericalCapacitorFromKeyBoard = 
+                new SphericalCapacitor();
             var actions = new List<Action>()
             {
                 new Action(() =>
                 {
                     Console.WriteLine("External Radius Of Sphere : ");
                     newShericalCapacitorFromKeyBoard.
-                    ExterRadiusOfSphere =
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        ExterRadiusOfSphere =
+                        ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
                     Console.WriteLine("Internal Radius Of Sphere : ");
                     newShericalCapacitorFromKeyBoard.
-                    InterRadiusOfSphere =
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        InterRadiusOfSphere =
+                        ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
                     Console.WriteLine("Dielectric Permittivity: ");
                     newShericalCapacitorFromKeyBoard.
-                    DielectricPermittivity =
-                    double.Parse(Console.ReadLine().Replace('.',','));
+                        DielectricPermittivity =
+                        ReadFromConsoleAndParse();
                 })
             };
             actions.ForEach(SetValue);
             return newShericalCapacitorFromKeyBoard;
+        }
+
+        /// <summary>
+        /// Получить пользовательский ввод и преобразовать в double
+        /// </summary>
+        public static double ReadFromConsoleAndParse()
+        {
+            return double.Parse(Console.ReadLine().Replace('.', ','));
         }
 
         /// <summary>

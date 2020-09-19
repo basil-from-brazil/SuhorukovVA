@@ -23,46 +23,58 @@ namespace Lab3
 
             while (true)
             {
-                    Console.WriteLine("Please, select an action:");
-                    Console.WriteLine("1 - Calculate the capacitance of plate capacitor");
-                    Console.WriteLine("2 - Calculate the capacitance of cylindrical capacitor");
-                    Console.WriteLine("3 - Calculte the capacitance of spherical capacitor");
-                    Console.WriteLine("4 - Exit the programme...");
-                    var menuKey = Console.ReadLine();
-                    switch (menuKey)
+                Console.WriteLine("Please, select an action:");
+                Console.WriteLine("1 - Calculate the capacitance " +
+                    "of plate capacitor");
+                Console.WriteLine("2 - Calculate the capacitance " +
+                    "of cylindrical capacitor");
+                Console.WriteLine("3 - Calculte the capacitance " +
+                    "of spherical capacitor");
+                Console.WriteLine("4 - Exit the programme...");
+                var menuKey = Console.ReadLine();
+                switch (menuKey)
+                {
+                    case "1":
                     {
-                        case "1":
-                        {
-                            GetCapacitanceInfo(ConsoleInput.GetNewPlateCapacitorFromKeyboard());
-                            break;
-                        }
-                        case "2":
-                        {
-                            GetCapacitanceInfo(ConsoleInput.GetNewCylindricalCapacitorFromKeyboard());
-                            break;
-                        }
-                        case "3":
-                        {
-                            GetCapacitanceInfo(ConsoleInput.GetNewSphericalCapacitorFromKeyboard());
-                            break;
-                        }
-                        case "4":
-                        {
-                            Environment.Exit(0);
-                            break;
-                        }
-                        default:
-                        {
-                                Console.WriteLine("There is no such action! Please, try again!\n");
-                                break;
-                        }
+                        GetCapacitanceInfo(ConsoleInput.
+                            GetNewPlateCapacitorFromKeyboard());
+                        break;
                     }
+                    case "2":
+                    {
+                        GetCapacitanceInfo(ConsoleInput.
+                            GetNewCylindricalCapacitorFromKeyboard());
+                        break;
+                    }
+                    case "3":
+                    {
+                        GetCapacitanceInfo(ConsoleInput.
+                            GetNewSphericalCapacitorFromKeyboard());
+                        break;
+                    }
+                    case "4":
+                    {
+                        Environment.Exit(0);
+                        break;
+                    }
+                    default:
+                    {
+                            Console.WriteLine("There is no such action! " +
+                                "Please, try again!\n");
+                            break;
+                    }
+                }
             }
         }
 
+        /// <summary>
+        /// Вывести ифномарцию о емкости конденсатора на консоль
+        /// </summary>
+        /// <param name="capacitor">Экземпляр класса Конденсатор</param>
         public static void GetCapacitanceInfo(CapacitorBase capacitor)
         {
-            Console.WriteLine($"The capacitance is equal to {capacitor.Capacity} F\n");
+            Console.WriteLine($"The capacitance is equal " +
+                $"to {capacitor.Capacity} F\n");
         }
     }
 }

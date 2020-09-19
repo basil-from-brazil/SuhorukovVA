@@ -37,7 +37,7 @@ namespace Model
             }
             set
             {
-                _heightOfCylinder = ModelCheck.ValueCheck(value);
+                _heightOfCylinder = ModelChecker.ValueChecker(value);
             }
         }
 
@@ -52,7 +52,11 @@ namespace Model
             }
             set
             {
-                _exterRadiusOfCylinder = ModelCheck.ValueCheck(value);
+                _exterRadiusOfCylinder = ModelChecker.ValueChecker(value);
+                if (ModelChecker.IsRadiusEntered(InterRadiusOfCylinder))
+                {
+                    ModelChecker.RadiusChecker(InterRadiusOfCylinder, value);
+                }
             }
         }
 
@@ -67,37 +71,45 @@ namespace Model
             }
             set
             {
-                _interRadiusOfCylinder = ModelCheck.ValueCheck(value);
+                _interRadiusOfCylinder = ModelChecker.ValueChecker(value);
+                if (ModelChecker.IsRadiusEntered(ExterRadiusOfCylinder))
+                {
+                    ModelChecker.RadiusChecker(value,ExterRadiusOfCylinder);
+                }
             }
         }
 
-        /// <summary>
-        /// Конструктор класса Цилиндрический конденсатор
-        /// </summary>
-        /// <param name="heightOfCylinder">Высота цилиндрического 
-        /// конденсатора</param>
-        /// <param name="exterRadiusOfCylinder">Внешний радиус 
-        /// цилиндрического конденсатора</param>
-        /// <param name="interRadiusOfCylinder">Внутренний радиус 
-        /// цилиндрического конденсатора</param>
-        /// <param name="dielectricPermittivity">Диэлектрическая 
-        /// проницаемость диэлектрика конденсатора</param>
-        public CylindricalCapacitor(double heightOfCylinder, double 
-            exterRadiusOfCylinder, double interRadiusOfCylinder, 
-            double dielectricPermittivity)
-        {
-            HeightOfCylinder = heightOfCylinder;
-            ExterRadiusOfCylinder = exterRadiusOfCylinder;
-            InterRadiusOfCylinder = interRadiusOfCylinder;
-            DielectricPermittivity = dielectricPermittivity;
-        }
+        ///// <summary>
+        ///// Конструктор класса Цилиндрический конденсатор
+        ///// </summary>
+        ///// <param name="heightOfCylinder">Высота цилиндрического 
+        ///// конденсатора</param>
+        ///// <param name="exterRadiusOfCylinder">Внешний радиус 
+        ///// цилиндрического конденсатора</param>
+        ///// <param name="interRadiusOfCylinder">Внутренний радиус 
+        ///// цилиндрического конденсатора</param>
+        ///// <param name="dielectricPermittivity">Диэлектрическая 
+        ///// проницаемость диэлектрика конденсатора</param>
+        //public CylindricalCapacitor(double heightOfCylinder, 
+        //    double exterRadiusOfCylinder, double interRadiusOfCylinder, 
+        //    double dielectricPermittivity)
+        //{
+        //    HeightOfCylinder = heightOfCylinder;
+        //    ExterRadiusOfCylinder = exterRadiusOfCylinder;
+        //    InterRadiusOfCylinder = interRadiusOfCylinder;
+        //    DielectricPermittivity = dielectricPermittivity;
+        //}
 
         /// <summary>
         /// Конструктор класса Цилиндрический конденсатор по умолчанию
         /// </summary>
-        public CylindricalCapacitor() : this(12, 18, 6, 3.8)
-        {
-        }
+        //public CylindricalCapacitor() : this(12, 18, 6, 3.8)
+        //{
+        //    HeightOfCylinder = 12;
+        //    ExterRadiusOfCylinder = 18;
+        //    InterRadiusOfCylinder = 6;
+        //    DielectricPermittivity = 3.8;
+        //}
 
         /// <summary>
         /// Емкость цилиндрического конденсатора
@@ -106,11 +118,8 @@ namespace Model
         {
             get
             {
-                ModelCheck.RadiusCheck(InterRadiusOfCylinder, ExterRadiusOfCylinder);
-                return 2 * Math.PI * DielectricPermittivity * 
-                VACUUMPERMITTIVITY * HeightOfCylinder / 
-                (Math.Log(ExterRadiusOfCylinder / 
-                InterRadiusOfCylinder));
+                return 2 * Math.PI * DielectricPermittivity * VACUUMPERMITTIVITY * HeightOfCylinder /
+                    (Math.Log(ExterRadiusOfCylinder / InterRadiusOfCylinder));
             }
              
         }

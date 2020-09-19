@@ -22,6 +22,10 @@ namespace Model
         /// </summary>
         private double _dielectricPermittivity;
 
+        //TODO: RSDN (исправил)
+        /// <summary>
+        /// Диэлектрическая проницаемость диэлектрика конденсатора
+        /// </summary>
         public double DielectricPermittivity
         {
             get
@@ -30,7 +34,7 @@ namespace Model
             }
             set
             {
-                _dielectricPermittivity=ModelCheck.ValueCheck(value);
+                _dielectricPermittivity = ModelChecker.ValueChecker(value);
             }
         }
 

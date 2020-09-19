@@ -32,7 +32,11 @@ namespace Model
             }
             set
             {
-                _exterRadiusOfSphere = ModelCheck.ValueCheck(value);
+                _exterRadiusOfSphere = ModelChecker.ValueChecker(value);
+                if (ModelChecker.IsRadiusEntered(InterRadiusOfSphere))
+                {
+                    ModelChecker.RadiusChecker(InterRadiusOfSphere, value);
+                }
             }
         }
 
@@ -47,43 +51,45 @@ namespace Model
             }
             set
             {
-                _interRadiusOfSphere = ModelCheck.ValueCheck(value);
+                _interRadiusOfSphere = ModelChecker.ValueChecker(value);
+                if (ModelChecker.IsRadiusEntered(ExterRadiusOfSphere))
+                {
+                    ModelChecker.RadiusChecker(value, ExterRadiusOfSphere);
+                }
             }
         }
 
-        /// <summary>
-        /// Конструктор класса Сферический конденсатор
-        /// </summary>
-        /// <param name="exterRadiusOfSphere">Внешний радиус 
-        /// сферического конденсатора</param>
-        /// <param name="interRadiusOfSphere">Внутренний радиус 
-        /// сферического конденсатора</param>
-        /// <param name="dielectricPermittivity">Диэлектрическая 
-        /// проницаемость диэлектрика конденсатора</param>
-        public SphericalCapacitor (double exterRadiusOfSphere, double 
-            interRadiusOfSphere, double dielectricPermittivity)
-        {
-            ExterRadiusOfSphere = exterRadiusOfSphere;
-            InterRadiusOfSphere = interRadiusOfSphere;
-            DielectricPermittivity = dielectricPermittivity;
-        }
+        ///// <summary>
+        ///// Конструктор класса Сферический конденсатор
+        ///// </summary>
+        ///// <param name="exterRadiusOfSphere">Внешний радиус 
+        ///// сферического конденсатора</param>
+        ///// <param name="interRadiusOfSphere">Внутренний радиус 
+        ///// сферического конденсатора</param>
+        ///// <param name="dielectricPermittivity">Диэлектрическая 
+        ///// проницаемость диэлектрика конденсатора</param>
+        //public SphericalCapacitor (double exterRadiusOfSphere, 
+        //    double interRadiusOfSphere, double dielectricPermittivity)
+        //{
+        //    ExterRadiusOfSphere = exterRadiusOfSphere;
+        //    InterRadiusOfSphere = interRadiusOfSphere;
+        //    DielectricPermittivity = dielectricPermittivity;
+        //}
 
-        /// <summary>
-        /// Конструктор класса Сферический конденсатор по-умолчанию
-        /// </summary>
-        public SphericalCapacitor() : this(18, 12, 3.8)
-        {
-        }
+        ///// <summary>
+        ///// Конструктор класса Сферический конденсатор по умолчанию
+        ///// </summary>
+        //public SphericalCapacitor() : this(18, 12, 3.8)
+        //{
+        //}
 
         public override double Capacity
         {
             get
             {
-                ModelCheck.RadiusCheck(InterRadiusOfSphere,ExterRadiusOfSphere);
-                return 4 * Math.PI * DielectricPermittivity * 
-                    VACUUMPERMITTIVITY * InterRadiusOfSphere * 
-                    ExterRadiusOfSphere / (ExterRadiusOfSphere 
-                    - InterRadiusOfSphere);
+                return 4 * Math.PI * DielectricPermittivity * VACUUMPERMITTIVITY * 
+                       InterRadiusOfSphere * ExterRadiusOfSphere / 
+                       (ExterRadiusOfSphere - InterRadiusOfSphere);
             }
         }
     }

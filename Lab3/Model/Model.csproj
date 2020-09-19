@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="CapacitorBase.cs" />
     <Compile Include="CylindricalCapacitor.cs" />
-    <Compile Include="ModelCheck.cs" />
+    <Compile Include="ModelChecker.cs" />
     <Compile Include="PlateCapacitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SphericalCapacitor.cs" />
