@@ -103,10 +103,18 @@ namespace ClassLibrary
             {
                 infoAboutChild += $"\nMother: {Mother.GetPersonInfo()}";
             }
+            else
+            {
+                infoAboutChild += $"\nMother: child does not have a mother.";
+            }
 
             if (Father != null)
             {
                 infoAboutChild += $"\nFather: {Father.GetPersonInfo()}";
+            }
+            else
+            {
+                infoAboutChild += $"\nFather: child does not have a father.";
             }
 
             return infoAboutChild;

@@ -70,17 +70,14 @@ namespace Lab2
         /// <returns>Серия и номер паспорта</returns>
         private static string GeneratePassportData(bool isPassportNumber)
         {
-            string data;
-
             if (isPassportNumber)
             {
-                data = FillPassportNumberWithZeros(_random.Next(0, 1000000).ToString(), 6);
+                return FillPassportNumberWithZeros(_random.Next(0, 1000000).ToString(), 6);
             }
             else
             {
-                data = FillPassportNumberWithZeros(_random.Next(0, 10000).ToString(), 4);
+                return FillPassportNumberWithZeros(_random.Next(0, 10000).ToString(), 4);
             }
-            return data;
         }
 
         /// <summary>
@@ -90,13 +87,14 @@ namespace Lab2
         /// состоящего в браке</param>
         /// <param name="partner">Партнер взрослого человека</param>
         /// <returns>Сгенерированный взрослый человек</returns>
-        public static Adult GenerateRandomAdult(bool forMarriage=false, Adult partner = null)
+        public static Adult GenerateRandomAdult(bool forMarriage = false, Adult partner = null, 
+            //bool isSetGender = false, //Genders gender = Genders.Male)
         {
             var randomAdult = new Adult();
 
             GenerateGeneralPersonInfo(randomAdult);
 
-            randomAdult.Age = _random.Next(Adult.MINAGE, Adult.MAXAGE+1);
+            randomAdult.Age = _random.Next(Adult.MINAGE, Adult.MAXAGE + 1);
 
             if (!forMarriage)
             {
@@ -141,12 +139,20 @@ namespace Lab2
             if (haveMother)
             {
                 randomChild.Mother = GenerateRandomAdult();
+                while (randomChild.Mother.Gender == Genders.Male)
+                {
+                    randomChild.Mother = GenerateRandomAdult();
+                }
             }
 
             bool haveFather = Convert.ToBoolean(_random.Next(0, 2));
             if (haveFather)
             {
                 randomChild.Father = GenerateRandomAdult();
+                while (randomChild.Father.Gender == Genders.Female)
+                {
+                    randomChild.Father = GenerateRandomAdult();
+                }
             }
             if (randomChild.Age < 7)
             {
@@ -168,6 +174,10 @@ namespace Lab2
             return randomChild;
         }
 
+        /// <summary>
+        /// Сгенерировать случайного человека
+        /// </summary>
+        /// <returns>Сгенерированный человек</returns>
         public static PersonBase GenerateRandomPerson()
         {
             if (_random.Next(0, 2) != 0)

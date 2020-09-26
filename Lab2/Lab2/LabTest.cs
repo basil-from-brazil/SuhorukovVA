@@ -42,17 +42,15 @@ namespace Lab2
             Console.ReadKey();
             Console.Write("The forth person in list is ");
 
-            if (people.GetPersonByIndex(3) is Adult)
+            if (people.GetPersonByIndex(3) is Adult adult)
             {
                 Console.Write("adult person.");
-                var person = people.GetPersonByIndex(3) as Adult;
-                Console.WriteLine(person.GetJobPromotion());
+                Console.WriteLine(adult.GetJobPromotion());
             }
-            else if (people.GetPersonByIndex(3) is Child)
+            else if (people.GetPersonByIndex(3) is Child child)
             {
                 Console.Write("child person.");
-                var person = people.GetPersonByIndex(3) as Child;
-                Console.WriteLine(person.TryBuyingAlcohol());
+                Console.WriteLine(child.TryBuyingAlcohol());
             }
 
             Console.WriteLine("\nThis is the end of Lab 3...");
