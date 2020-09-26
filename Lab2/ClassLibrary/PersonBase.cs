@@ -150,6 +150,15 @@ namespace ClassLibrary
                    $"Gender: {Gender}";
         }
         
+        /// <summary>
+        /// Метод получения краткой информации об экземпляре класса Человек
+        /// </summary>
+        /// <returns>Краткая иформация об экземляре класса Человек</returns>
+        protected string GetPersonBaseShortInfo()
+        {
+            return $"{FirstName} {LastName}";
+        }
+
         #endregion
     }
 }

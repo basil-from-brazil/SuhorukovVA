@@ -16,12 +16,12 @@ namespace ClassLibrary
         /// <summary>
         /// Минимальный возраст для взрослого человека
         /// </summary>
-        public const int MinAgeForAdult = 18;
+        public const int MINAGE = 18;
 
         /// <summary>
         /// Маскимальный возраст для взрослого человека
         /// </summary>
-        public const int MaxAgeForAdult = 122;
+        public const int MAXAGE = 122;
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace ClassLibrary
             }
             set
             {
-                if (value < MinAgeForAdult || value > MaxAgeForAdult)
+                if (value < MINAGE || value > MAXAGE)
                 {
                     throw new ArgumentOutOfRangeException(
                         "The age of adult must be between 18 and " +
@@ -187,6 +187,15 @@ namespace ClassLibrary
             }
 
             return infoAboutAdult;
+        }
+
+        /// <summary>
+        /// Получить продвижение по работе
+        /// </summary>
+        /// <returns>Продвижение по работе</returns>
+        public string GetJobPromotion()
+        {
+            return $"\n{GetPersonBaseShortInfo()} is getting a job promotion!";
         }
 
         #endregion

@@ -16,12 +16,12 @@ namespace ClassLibrary
         /// <summary>
         /// Минимальный возраст для ребенка
         /// </summary>
-        public const int MinAgeForChild = 0;
+        public const int MINAGE = 0;
 
         /// <summary>
         /// Маскимальный возраст для ребенка
         /// </summary>
-        public const int MaxAgeForChild = 17;
+        public const int MAXAGE = 17;
 
         #endregion
 
@@ -47,7 +47,7 @@ namespace ClassLibrary
             }
             set
             {
-                if (value < MinAgeForChild || value > MaxAgeForChild)
+                if (value < MINAGE || value > MAXAGE)
                 {
                     throw new ArgumentOutOfRangeException(
                         "The age of child must be between 0 and " +
@@ -110,6 +110,16 @@ namespace ClassLibrary
             }
 
             return infoAboutChild;
+        }
+
+        /// <summary>
+        /// Попытаться купить алкоголь
+        /// </summary>
+        /// <returns>Невозможность купить алкоголь</returns>
+        public string TryBuyingAlcohol()
+        {
+            return $"\n{GetPersonBaseShortInfo()} cannot buy alcohol! " +
+                $"He is still under 18!";
         }
 
         #endregion

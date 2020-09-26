@@ -18,7 +18,44 @@ namespace Lab2
         /// <param name="args">Параметры</param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("Привет!");
+            Console.WriteLine("Press any key to start the programme...");
+            Console.ReadKey();
+
+            Console.WriteLine("Generating seven random people...\n");
+            Console.ReadKey();
+
+            var people = new PersonList();
+
+            for (int i = 0; i < 7; i++)
+            {
+                people.AddPerson(RandomPerson.GenerateRandomPerson());
+            }
+
+            Console.WriteLine("Random generated list:\n");
+
+            for (int i = 0; i < people.Length; i++)
+            {
+                Console.WriteLine(people.GetPersonByIndex(i).GetPersonInfo());
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
+            Console.Write("\nThe forth peson in list is ");
+
+            if (people.GetPersonByIndex(3) is Adult)
+            {
+                Console.Write("adult person.");
+                var person = people.GetPersonByIndex(3) as Adult;
+                Console.WriteLine(person.GetJobPromotion());
+            }
+            else if (people.GetPersonByIndex(3) is Child)
+            {
+                Console.Write("child person.");
+                var person = people.GetPersonByIndex(3) as Child;
+                Console.WriteLine(person.TryBuyingAlcohol());
+            }
+
+            Console.WriteLine("This is the end of Lab 3...");
             Console.ReadKey();
         }
     }
