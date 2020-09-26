@@ -40,7 +40,7 @@ namespace Lab2
             }
 
             Console.ReadKey();
-            Console.Write("\nThe forth peson in list is ");
+            Console.Write("The forth person in list is ");
 
             if (people.GetPersonByIndex(3) is Adult)
             {
@@ -55,7 +55,7 @@ namespace Lab2
                 Console.WriteLine(person.TryBuyingAlcohol());
             }
 
-            Console.WriteLine("This is the end of Lab 3...");
+            Console.WriteLine("\nThis is the end of Lab 3...");
             Console.ReadKey();
         }
     }

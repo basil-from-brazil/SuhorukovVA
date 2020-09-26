@@ -39,7 +39,7 @@ namespace Lab2
 
             var allLastNames = Properties.Resource.LastNames.Split('\n');
             randomElement = allLastNames[_random.Next(0, allLastNames.Length)];
-            person.LastName = randomElement.Substring(0, randomElement.Length - 2);
+            person.LastName = randomElement.Substring(0, randomElement.Length - 1);
         }
 
         /// <summary>

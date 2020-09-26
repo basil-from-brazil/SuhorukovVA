@@ -8,7 +8,6 @@ Carina	Female
 Winston	Male
 Robert	Male
 Ronnie	Male
-Erminia Female
 Deandrea	Female
 Wilburn	Male
 Bertie	Female
@@ -48,3 +47,4 @@ Rod	Male
 Ramiro	Male
 Eleanor	Female
 Londa	Female
+Bob	Male
