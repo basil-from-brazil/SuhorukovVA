@@ -69,9 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\CompaniesNames.txt" />
-    <Content Include="Resources\FirstNamesAndGenders.txt" />
+    <Content Include="Resources\FemaleNames.txt" />
     <Content Include="Resources\Kindergartens.txt" />
     <Content Include="Resources\LastNames.txt" />
+    <Content Include="Resources\MaleNames.txt" />
     <Content Include="Resources\Schools.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

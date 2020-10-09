@@ -30,15 +30,20 @@ namespace Lab2
         /// об экземпляре класса Человек</param>
         public static void GenerateGeneralPersonInfo(PersonBase person)
         {
-            var allFirstNames = Properties.Resource.FirstNamesAndGenders.Split('\n');
-            var randomElement = allFirstNames[_random.Next(0, allFirstNames.Length)];
-
-            var firstNameAndGender = randomElement.Split('\t');
-            person.FirstName = firstNameAndGender[0];
-            person.Gender = (Genders)Enum.Parse(typeof(Genders), firstNameAndGender[1]);
-
+            if (person.Gender == Genders.Male)
+            {
+                var allMaleNames = Properties.Resource.MaleNames.Split('\n');
+                var randomElementMales = allMaleNames[_random.Next(0, allMaleNames.Length)];
+                person.FirstName = randomElementMales.Substring(0, randomElementMales.Length - 1);
+            }
+            else
+            {
+                var allFemaleNames = Properties.Resource.FemaleNames.Split('\n');
+                var randomElementFemales = allFemaleNames[_random.Next(0, allFemaleNames.Length)];
+                person.FirstName = randomElementFemales.Substring(0, randomElementFemales.Length - 1);
+            }
             var allLastNames = Properties.Resource.LastNames.Split('\n');
-            randomElement = allLastNames[_random.Next(0, allLastNames.Length)];
+            var randomElement = allLastNames[_random.Next(0, allLastNames.Length)];
             person.LastName = randomElement.Substring(0, randomElement.Length - 1);
         }
 
@@ -86,33 +91,57 @@ namespace Lab2
         /// <param name="forMarriage">Генерация партнера для человека,
         /// состоящего в браке</param>
         /// <param name="partner">Партнер взрослого человека</param>
+        /// <param name="isGenderSet">Генерируется ли пол случайным образом</param>
         /// <returns>Сгенерированный взрослый человек</returns>
         public static Adult GenerateRandomAdult(bool forMarriage = false, Adult partner = null, 
-            //bool isSetGender = false, //Genders gender = Genders.Male)
+            bool isGenderSet = false, bool isAdultAParent = false, 
+            bool isAdultAMother = false)
         {
             var randomAdult = new Adult();
-
-            GenerateGeneralPersonInfo(randomAdult);
-
-            randomAdult.Age = _random.Next(Adult.MINAGE, Adult.MAXAGE + 1);
-
+            if (!isGenderSet)
+            {
+                randomAdult.Gender = (Genders)_random.Next(0, 2);
+            }
+            else
+            {
+                if (isAdultAParent)
+                {
+                    if (isAdultAMother)
+                    {
+                        randomAdult.Gender = Genders.Female;
+                    }
+                    else
+                    {
+                        randomAdult.Gender = Genders.Male;
+                    }
+                }
+            }
             if (!forMarriage)
             {
-                randomAdult.MarriageState =
+                randomAdult.MarriageState = 
                     (MarriageState)_random.Next(0, 4);
 
                 if (randomAdult.MarriageState == MarriageState.Married)
                 {
                     randomAdult.Partner =
-                        GenerateRandomAdult(true, randomAdult);
+                        GenerateRandomAdult(true, randomAdult, true);
                 }
             }
             else
             {
                 randomAdult.MarriageState = MarriageState.Married;
                 randomAdult.Partner = partner;
+                if (partner.Gender == Genders.Male)
+                {
+                    randomAdult.Gender = Genders.Female;
+                }
+                else
+                {
+                    randomAdult.Gender = Genders.Male;
+                }
             }
-
+            randomAdult.Age = _random.Next(Adult.MINAGE, Adult.MAXAGE + 1);
+            GenerateGeneralPersonInfo(randomAdult);
             var allCompanyNames =
                 Properties.Resource.CompaniesNames.Split('\n');
             randomAdult.PlaceOfWork =
@@ -131,28 +160,21 @@ namespace Lab2
         public static Child GenerateRandomChild()
         {
             var randomChild = new Child();
-
+            randomChild.Gender = (Genders)_random.Next(0, 2);
             GenerateGeneralPersonInfo(randomChild);
-            randomChild.Age = _random.Next(Child.MINAGE, Child.MAXAGE);
+            randomChild.Age = _random.Next(Child.MINAGE, Child.MAXAGE + 1);
 
             bool haveMother = Convert.ToBoolean(_random.Next(0, 2));
             if (haveMother)
             {
-                randomChild.Mother = GenerateRandomAdult();
-                while (randomChild.Mother.Gender == Genders.Male)
-                {
-                    randomChild.Mother = GenerateRandomAdult();
-                }
+                randomChild.Mother = GenerateRandomAdult(isGenderSet: true, 
+                    isAdultAParent : true, isAdultAMother : true);
             }
 
             bool haveFather = Convert.ToBoolean(_random.Next(0, 2));
             if (haveFather)
             {
-                randomChild.Father = GenerateRandomAdult();
-                while (randomChild.Father.Gender == Genders.Female)
-                {
-                    randomChild.Father = GenerateRandomAdult();
-                }
+                randomChild.Father = GenerateRandomAdult(isGenderSet : true, isAdultAParent: true);
             }
             if (randomChild.Age < 7)
             {

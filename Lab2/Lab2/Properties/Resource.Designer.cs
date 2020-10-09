@@ -100,47 +100,60 @@ namespace Lab2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to See	Female
-        ///Pei	Female
-        ///Stanton	Male
-        ///Diane	Female	
-        ///Wenona	Female
-        ///Nubia	Female
-        ///Carina	Female
-        ///Winston	Male
-        ///Robert	Male
-        ///Ronnie	Male
-        ///Erminia Female
-        ///Deandrea	Female
-        ///Wilburn	Male
-        ///Bertie	Female
-        ///Miki	Female
-        ///Alysa	Female
-        ///Shayne	Male
-        ///Shara	Female
-        ///Leonila	Female
-        ///Dimple	Female
-        ///Martin	Male
-        ///Boyd	Male
-        ///Ryann	Female
-        ///Lissette	Female
-        ///Sandasa	Female
-        ///Darrel	Male
-        ///Bob	Male
-        ///Viola	Female
-        ///Delisa	Female
-        ///Helena	Female
-        ///Ross	Male
-        ///Ligia	Female
-        ///Clemente	Male
-        ///Juliane	Female
-        ///Jimmy	Male
-        ///Cornelius	Male
-        ///Gracie [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Nathalie
+        ///Desiree
+        ///Sofia
+        ///Leah
+        ///Camila
+        ///Jessie
+        ///Mariela
+        ///Milagros
+        ///Marlene
+        ///Claire
+        ///Shannon
+        ///Skye
+        ///Amirah
+        ///Alma
+        ///Chasity
+        ///Eileen
+        ///Jocelynn
+        ///Gemma
+        ///Esperanza
+        ///Gillian
+        ///Adriana
+        ///Jordan
+        ///Adeline
+        ///Noelle
+        ///Lorena
+        ///Heaven
+        ///Arely
+        ///Carolyn
+        ///Hillary
+        ///Wendy
+        ///Elisabeth
+        ///June
+        ///Annie
+        ///Mylie
+        ///Shyanne
+        ///Charlize
+        ///Keira
+        ///Danika
+        ///Melina
+        ///Kira
+        ///Adalyn
+        ///Kathy
+        ///Violet
+        ///Naima
+        ///Linda
+        ///Lilly
+        ///Marilyn
+        ///Mareli
+        ///Lisa
+        ///Lindsey.
         /// </summary>
-        internal static string FirstNamesAndGenders {
+        internal static string FemaleNames {
             get {
-                return ResourceManager.GetString("FirstNamesAndGenders", resourceCulture);
+                return ResourceManager.GetString("FemaleNames", resourceCulture);
             }
         }
         
@@ -209,7 +222,7 @@ namespace Lab2.Properties {
         ///Munoz
         ///Buckley
         ///House
-        ///Gay
+        ///Garyvio
         ///Santiago
         ///Dillon
         ///Solis
@@ -236,6 +249,64 @@ namespace Lab2.Properties {
         internal static string LastNames {
             get {
                 return ResourceManager.GetString("LastNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Braedon
+        ///Shawn
+        ///Chaz
+        ///Lance
+        ///Aiden
+        ///Mekhi
+        ///Lucian
+        ///Collin
+        ///Ivan
+        ///Jaydon
+        ///Frankie
+        ///Elvis
+        ///Darion
+        ///Kash
+        ///Kingston
+        ///Jaydan
+        ///Jamir
+        ///Lewis
+        ///Semaj
+        ///Nikolas
+        ///Kenneth
+        ///Wayne
+        ///Ellis
+        ///Aarav
+        ///Zack
+        ///Reece
+        ///Reuben
+        ///Jamari
+        ///Lawrence
+        ///Ezra
+        ///Valentino
+        ///Jovan
+        ///Jakobe
+        ///Kody
+        ///Harrison
+        ///Arjun
+        ///Marvin
+        ///Rayan
+        ///Case
+        ///Luca
+        ///Albert
+        ///Thaddeus
+        ///Chase
+        ///Carlos
+        ///Camren
+        ///Remington
+        ///Jason
+        ///Ray
+        ///Chance
+        ///Mark.
+        /// </summary>
+        internal static string MaleNames {
+            get {
+                return ResourceManager.GetString("MaleNames", resourceCulture);
             }
         }
         

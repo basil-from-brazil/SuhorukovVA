@@ -127,7 +127,7 @@ namespace ClassLibrary
         public string TryBuyingAlcohol()
         {
             return $"\n{GetPersonBaseShortInfo()} cannot buy alcohol! " +
-                $"He is still under 18!";
+                $"He/She is still under 18!";
         }
 
         #endregion

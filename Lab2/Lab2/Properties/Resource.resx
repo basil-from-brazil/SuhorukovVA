@@ -121,14 +121,17 @@
   <data name="CompaniesNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CompaniesNames.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="FirstNamesAndGenders" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FirstNamesAndGenders.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="FemaleNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FemaleNames.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Kindergartens" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Kindergartens.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="LastNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LastNames.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MaleNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MaleNames.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Schools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Schools.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

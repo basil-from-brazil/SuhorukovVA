@@ -40,7 +40,7 @@ namespace Lab2
             }
 
             Console.ReadKey();
-            Console.Write("The forth person in list is ");
+            Console.Write("The forth person in the list is ");
 
             if (people.GetPersonByIndex(3) is Adult adult)
             {
