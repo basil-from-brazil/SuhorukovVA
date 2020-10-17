@@ -106,14 +106,9 @@ namespace Lab2
             {
                 if (isAdultAParent)
                 {
-                    if (isAdultAMother)
-                    {
-                        randomAdult.Gender = Genders.Female;
-                    }
-                    else
-                    {
-                        randomAdult.Gender = Genders.Male;
-                    }
+                    randomAdult.Gender = isAdultAMother 
+                        ? Genders.Female
+                        : Genders.Male;                    
                 }
             }
             if (!forMarriage)
@@ -131,14 +126,9 @@ namespace Lab2
             {
                 randomAdult.MarriageState = MarriageState.Married;
                 randomAdult.Partner = partner;
-                if (partner.Gender == Genders.Male)
-                {
-                    randomAdult.Gender = Genders.Female;
-                }
-                else
-                {
-                    randomAdult.Gender = Genders.Male;
-                }
+                randomAdult.Gender = partner.Gender == Genders.Male 
+                        ? Genders.Female
+                        : Genders.Male;    
             }
             randomAdult.Age = _random.Next(Adult.MINAGE, Adult.MAXAGE + 1);
             GenerateGeneralPersonInfo(randomAdult);
@@ -176,24 +166,20 @@ namespace Lab2
             {
                 randomChild.Father = GenerateRandomAdult(isGenderSet : true, isAdultAParent: true);
             }
-            if (randomChild.Age < 7)
-            {
-                var allKindergardensNames =
-                Properties.Resource.Kindergartens.Split('\n');
-                randomChild.KindergartenOrSchool =
-                    allKindergardensNames
-                    [_random.Next(0, allKindergardensNames.Length)];
-            }
-            else
-            {
-                var allSchoolsNames =
-                Properties.Resource.Schools.Split('\n');
-                randomChild.KindergartenOrSchool =
-                    allSchoolsNames
-                    [_random.Next(0, allSchoolsNames.Length)];
-            }
+            
+            randomChild.KindergartenOrSchool = randomChild.Age < 7
+                ? GetRandomKindergartenOrSchool(Properties.Resource.Kindergartens)
+                : GetRandomKindergartenOrSchool(Properties.Resource.Schools);
 
             return randomChild;
+        }
+
+        ///
+        private static string GetRandomKindergartenOrSchool(string kinderGartenOrSchool)
+        {
+            var allKindergartenOrSchoolNames = kinderGartenOrSchool.Split('\n');                  
+            return allKindergartenOrSchoolNames
+                [_random.Next(0, allKindergartenOrSchoolNames.Length)];
         }
 
         /// <summary>

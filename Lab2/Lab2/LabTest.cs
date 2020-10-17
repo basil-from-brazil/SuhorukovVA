@@ -35,6 +35,7 @@ namespace Lab2
 
             for (int i = 0; i < people.Length; i++)
             {
+                Console.ReadKey();
                 Console.WriteLine(people.GetPersonByIndex(i).GetPersonInfo());
                 Console.WriteLine();
             }
