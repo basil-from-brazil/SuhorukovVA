@@ -44,8 +44,8 @@
             this.InterRadiusLabel = new System.Windows.Forms.Label();
             this.ExterRadiusLabel = new System.Windows.Forms.Label();
             this.ExterRadiusTextBox = new System.Windows.Forms.TextBox();
-            this.OKButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.OKCapacitorButton = new System.Windows.Forms.Button();
+            this.CancelCapacitorButton = new System.Windows.Forms.Button();
             this.CapacitorTypeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +150,7 @@
             // HeightOfCylinderLabel
             // 
             this.HeightOfCylinderLabel.AutoSize = true;
-            this.HeightOfCylinderLabel.Location = new System.Drawing.Point(142, 81);
+            this.HeightOfCylinderLabel.Location = new System.Drawing.Point(143, 81);
             this.HeightOfCylinderLabel.Name = "HeightOfCylinderLabel";
             this.HeightOfCylinderLabel.Size = new System.Drawing.Size(59, 13);
             this.HeightOfCylinderLabel.TabIndex = 8;
@@ -198,31 +198,31 @@
             this.ExterRadiusTextBox.TabIndex = 13;
             this.ExterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
-            // OKButton
+            // OKCapacitorButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(182, 188);
-            this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(75, 23);
-            this.OKButton.TabIndex = 14;
-            this.OKButton.Text = "ОК";
-            this.OKButton.UseVisualStyleBackColor = true;
+            this.OKCapacitorButton.Location = new System.Drawing.Point(182, 188);
+            this.OKCapacitorButton.Name = "OKCapacitorButton";
+            this.OKCapacitorButton.Size = new System.Drawing.Size(75, 23);
+            this.OKCapacitorButton.TabIndex = 14;
+            this.OKCapacitorButton.Text = "ОК";
+            this.OKCapacitorButton.UseVisualStyleBackColor = true;
             // 
-            // CancelButton
+            // CancelCapacitorButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(263, 188);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 15;
-            this.CancelButton.Text = "Отмена";
-            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelCapacitorButton.Location = new System.Drawing.Point(263, 188);
+            this.CancelCapacitorButton.Name = "CancelCapacitorButton";
+            this.CancelCapacitorButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelCapacitorButton.TabIndex = 15;
+            this.CancelCapacitorButton.Text = "Отмена";
+            this.CancelCapacitorButton.UseVisualStyleBackColor = true;
             // 
             // CapacitorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 219);
-            this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.OKButton);
+            this.Controls.Add(this.CancelCapacitorButton);
+            this.Controls.Add(this.OKCapacitorButton);
             this.Controls.Add(this.ExterRadiusTextBox);
             this.Controls.Add(this.ExterRadiusLabel);
             this.Controls.Add(this.InterRadiusLabel);
@@ -265,7 +265,7 @@
         private System.Windows.Forms.Label InterRadiusLabel;
         private System.Windows.Forms.Label ExterRadiusLabel;
         private System.Windows.Forms.TextBox ExterRadiusTextBox;
-        private System.Windows.Forms.Button OKButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button OKCapacitorButton;
+        private System.Windows.Forms.Button CancelCapacitorButton;
     }
 }

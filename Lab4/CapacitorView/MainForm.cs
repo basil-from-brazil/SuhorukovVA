@@ -46,11 +46,6 @@ namespace CapacitorView
             var capacitor = new CapacitorForm();
 
             capacitor.Show();
-
-            //if (capacitor.ShowDialog() == DialogResult.OK)
-            //{
-            //    _capacitors.Add(capacitor.CapacitorCompleted);
-            //}
         }
     }
 }
