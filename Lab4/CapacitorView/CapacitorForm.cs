@@ -11,6 +11,9 @@ using CapacitorModel;
 
 namespace CapacitorView
 {
+    /// <summary>
+    /// Класс, описывающий форму добавления конденсатора
+    /// </summary>
     public partial class CapacitorForm : Form
     {
         /// <summary>
