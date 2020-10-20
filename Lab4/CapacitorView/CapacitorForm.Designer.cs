@@ -64,7 +64,7 @@
             this.DielectricPermittivityTextBox.Name = "DielectricPermittivityTextBox";
             this.DielectricPermittivityTextBox.Size = new System.Drawing.Size(100, 20);
             this.DielectricPermittivityTextBox.TabIndex = 2;
-            this.DielectricPermittivityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.DielectricPermittivityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DielectricPermittivityTextBox_Validating);
             // 
             // CapacitorTypeGroupBox
             // 
@@ -88,6 +88,7 @@
             this.SphericalCapacitorRadioButton.TabStop = true;
             this.SphericalCapacitorRadioButton.Text = "Сферический";
             this.SphericalCapacitorRadioButton.UseVisualStyleBackColor = true;
+            this.SphericalCapacitorRadioButton.CheckedChanged += new System.EventHandler(this.SphericalCapacitorRadioButton_CheckedChanged);
             // 
             // CylindricalCapacitorRadioButton
             // 
@@ -99,6 +100,7 @@
             this.CylindricalCapacitorRadioButton.TabStop = true;
             this.CylindricalCapacitorRadioButton.Text = "Цилиндрический";
             this.CylindricalCapacitorRadioButton.UseVisualStyleBackColor = true;
+            this.CylindricalCapacitorRadioButton.CheckedChanged += new System.EventHandler(this.CylindricalCapacitorRadioButton_CheckedChanged);
             // 
             // PlateCapacitorRadioButton
             // 
@@ -110,6 +112,7 @@
             this.PlateCapacitorRadioButton.TabStop = true;
             this.PlateCapacitorRadioButton.Text = "Плоский";
             this.PlateCapacitorRadioButton.UseVisualStyleBackColor = true;
+            this.PlateCapacitorRadioButton.CheckedChanged += new System.EventHandler(this.PlateCapacitorRadioButton_CheckedChanged);
             // 
             // PlateAreaTextBox
             // 
@@ -117,7 +120,7 @@
             this.PlateAreaTextBox.Name = "PlateAreaTextBox";
             this.PlateAreaTextBox.Size = new System.Drawing.Size(100, 20);
             this.PlateAreaTextBox.TabIndex = 4;
-            this.PlateAreaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.PlateAreaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PlateAreaTextBox_Validating);
             // 
             // PlateAreaLabel
             // 
@@ -135,7 +138,7 @@
             this.GapBetweenPlatesTextBox.Name = "GapBetweenPlatesTextBox";
             this.GapBetweenPlatesTextBox.Size = new System.Drawing.Size(100, 20);
             this.GapBetweenPlatesTextBox.TabIndex = 6;
-            this.GapBetweenPlatesTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.GapBetweenPlatesTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.GapBetweenPlatesTextBox_Validating);
             // 
             // GapBetweenPlatesLabel
             // 
@@ -162,7 +165,7 @@
             this.HeightOfCylinderTextBox.Name = "HeightOfCylinderTextBox";
             this.HeightOfCylinderTextBox.Size = new System.Drawing.Size(100, 20);
             this.HeightOfCylinderTextBox.TabIndex = 9;
-            this.HeightOfCylinderTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.HeightOfCylinderTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HeightOfCylinderTextBox_Validating);
             // 
             // InterRadiusTextBox
             // 
@@ -170,7 +173,7 @@
             this.InterRadiusTextBox.Name = "InterRadiusTextBox";
             this.InterRadiusTextBox.Size = new System.Drawing.Size(100, 20);
             this.InterRadiusTextBox.TabIndex = 10;
-            this.InterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.InterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.InterRadiusTextBox_Validating);
             // 
             // InterRadiusLabel
             // 
@@ -192,11 +195,11 @@
             // 
             // ExterRadiusTextBox
             // 
-            this.ExterRadiusTextBox.Location = new System.Drawing.Point(128, 157);
+            this.ExterRadiusTextBox.Location = new System.Drawing.Point(125, 158);
             this.ExterRadiusTextBox.Name = "ExterRadiusTextBox";
             this.ExterRadiusTextBox.Size = new System.Drawing.Size(100, 20);
             this.ExterRadiusTextBox.TabIndex = 13;
-            this.ExterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
+            this.ExterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ExterRadiusTextBox_Validating);
             // 
             // OKCapacitorButton
             // 
@@ -206,6 +209,7 @@
             this.OKCapacitorButton.TabIndex = 14;
             this.OKCapacitorButton.Text = "ОК";
             this.OKCapacitorButton.UseVisualStyleBackColor = true;
+            this.OKCapacitorButton.Click += new System.EventHandler(this.OKCapacitorButton_Click);
             // 
             // CancelCapacitorButton
             // 
@@ -215,6 +219,7 @@
             this.CancelCapacitorButton.TabIndex = 15;
             this.CancelCapacitorButton.Text = "Отмена";
             this.CancelCapacitorButton.UseVisualStyleBackColor = true;
+            this.CancelCapacitorButton.Click += new System.EventHandler(this.CancelCapacitorButton_Click);
             // 
             // CapacitorForm
             // 
@@ -241,6 +246,7 @@
             this.MinimizeBox = false;
             this.Name = "CapacitorForm";
             this.Text = "Добавление конденсатора";
+            this.Load += new System.EventHandler(this.CapacitorForm_Load);
             this.CapacitorTypeGroupBox.ResumeLayout(false);
             this.CapacitorTypeGroupBox.PerformLayout();
             this.ResumeLayout(false);

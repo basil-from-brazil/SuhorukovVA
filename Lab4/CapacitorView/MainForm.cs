@@ -45,7 +45,24 @@ namespace CapacitorView
         {
             var capacitor = new CapacitorForm();
 
-            capacitor.Show();
+            if (capacitor.ShowDialog() == DialogResult.OK)
+            {
+                _capacitors.Add(capacitor.CapacitorCompleted);
+            }
+        }
+
+        /// <summary>
+        /// Событие при удалении конденсатора
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteCapacitorButton_Click(object sender, EventArgs e)
+        {
+            var countOfRows = DataCapacitorsView.SelectedRows.Count;
+            for (int i = 0; i < countOfRows; i++)
+            {
+                _capacitors.RemoveAt(DataCapacitorsView.SelectedRows[0].Index);
+            }
         }
     }
 }

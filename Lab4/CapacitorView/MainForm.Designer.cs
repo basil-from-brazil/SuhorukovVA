@@ -78,6 +78,7 @@
             this.DeleteCapacitorButton.TabIndex = 2;
             this.DeleteCapacitorButton.Text = "Удалить конденсатор";
             this.DeleteCapacitorButton.UseVisualStyleBackColor = true;
+            this.DeleteCapacitorButton.Click += new System.EventHandler(this.DeleteCapacitorButton_Click);
             // 
             // AddRandomCapacitorButton
             // 
