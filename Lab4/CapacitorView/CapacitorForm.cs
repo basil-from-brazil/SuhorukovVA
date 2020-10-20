@@ -16,6 +16,22 @@ namespace CapacitorView
     /// </summary>
     public partial class CapacitorForm : Form
     {
+
+        private Dictionary<TextBox, Func<CapacitorBase, double>> _textBoxValidationAction = 
+            new Dictionary<TextBox, Func<CapacitorBase, double>>()
+            {
+                {
+                    PlateAreaTextBox,
+                    (CapacitorBase capacitor, double doubleValue) => 
+                    {
+                        if (capacitor is PlateCapacitor plateCapacitor)
+                        {
+                            plateCapacitor.PlateArea = doubleValue;
+                        }
+                    }
+                }
+            };
+
         /// <summary>
         /// Инициализация формы
         /// </summary>
@@ -64,15 +80,13 @@ namespace CapacitorView
         /// <param name="e"></param>
         private void PlateAreaTextBox_Validating(object sender, CancelEventArgs e)
         {
+            var textBox = sender as TextBox;
             try
             {
-                TryConvertingToDouble(PlateAreaTextBox.Text,
+                TryConvertingToDouble(textBox.Text,
                     out double doubleValue);
-                if (_capacitor is PlateCapacitor plateCapacitor)
-                {
-                    plateCapacitor.PlateArea = doubleValue;
-                }
-                PlateAreaTextBox.BackColor = Color.Green;
+                _textBoxValidationAction[textBox].Invoke(_capacitor, doubleValue);
+                textBox.BackColor = Color.Green;
             }
             catch (Exception exception)
             {
@@ -80,12 +94,12 @@ namespace CapacitorView
                     exception is ArgumentOutOfRangeException)
                 {
                     MessageBox.Show(exception.Message);
-                    PlateAreaTextBox.BackColor = Color.Red;
+                    textBox.BackColor = Color.Red;
                 }
                 else if (exception is FormatException)
                 {
                     MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
-                    PlateAreaTextBox.BackColor = Color.Red;
+                    textBox.BackColor = Color.Red;
                 }
             }
         }
