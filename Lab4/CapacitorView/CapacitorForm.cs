@@ -17,12 +17,20 @@ namespace CapacitorView
     public partial class CapacitorForm : Form
     {
 
-        private Dictionary<TextBox, Func<CapacitorBase, double>> _textBoxValidationAction = 
-            new Dictionary<TextBox, Func<CapacitorBase, double>>()
+        private readonly Dictionary<TextBox, Action<CapacitorBase, double>> _textBoxValidationAction; 
+           
+
+        /// <summary>
+        /// Инициализация формы
+        /// </summary>
+        public CapacitorForm()
+        {
+            InitializeComponent();
+            _textBoxValidationAction = new Dictionary<TextBox, Action<CapacitorBase, double>>
             {
                 {
                     PlateAreaTextBox,
-                    (CapacitorBase capacitor, double doubleValue) => 
+                    (capacitor, doubleValue) =>
                     {
                         if (capacitor is PlateCapacitor plateCapacitor)
                         {
@@ -31,13 +39,6 @@ namespace CapacitorView
                     }
                 }
             };
-
-        /// <summary>
-        /// Инициализация формы
-        /// </summary>
-        public CapacitorForm()
-        {
-            InitializeComponent();
         }
 
         /// <summary>
@@ -500,24 +501,24 @@ namespace CapacitorView
             switch (_capacitor)
             {
                 case PlateCapacitor _:
-                    {
-                        _capacitor = GetNewPlateCapacitor();
-                        break;
-                    }
+                {
+                    _capacitor = GetNewPlateCapacitor();
+                    break;
+                }
                 case CylindricalCapacitor _:
-                    {
-                        _capacitor = GetNewCylindricalCapacitor();
-                        break;
-                    }
+                {
+                    _capacitor = GetNewCylindricalCapacitor();
+                    break;
+                }
                 case SphericalCapacitor _:
-                    {
-                        _capacitor = GetNewSphericalCapacitor();
-                        break;
-                    }
+                {
+                    _capacitor = GetNewSphericalCapacitor();
+                    break;
+                }
                 default:
-                    {
-                        throw new ArgumentException("The type of capacitor is unknown!");
-                    }
+                {
+                    throw new ArgumentException("The type of capacitor is unknown!");
+                }
             }
         }
 
