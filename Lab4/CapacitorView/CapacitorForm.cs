@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -171,7 +172,8 @@ namespace CapacitorView
         /// <returns>Строку, преобразованную к типу double</returns>
         private double TryConvertingToDouble(string textValue, out double doubleValue)
         {
-            return doubleValue = double.Parse(textValue.Replace('.', ','));
+            return doubleValue = double.Parse(textValue.Replace(',','.'), 
+                CultureInfo.InvariantCulture);
         }
 
         /// <summary>

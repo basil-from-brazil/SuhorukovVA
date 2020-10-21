@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,11 +94,13 @@ namespace CapacitorView
                     var isDielectricPermittivitySearch =
                         DielectricPermittivityRadioButton.Checked &&
                         row.DielectricPermittivity == 
-                        double.Parse(SearchParameterTextBox.Text.Replace('.', ','));
+                        double.Parse(SearchParameterTextBox.Text.Replace(',','.'), 
+                        CultureInfo.InvariantCulture);
 
                     var isCapacitySearch = CapacityRadioButton.Checked &&
                         row.Capacity ==
-                        double.Parse(SearchParameterTextBox.Text.Replace('.', ','));
+                        double.Parse(SearchParameterTextBox.Text.Replace(',', '.'), 
+                        CultureInfo.InvariantCulture);
 
                     if (!string.IsNullOrEmpty(SearchParameterTextBox.Text))
                     {
