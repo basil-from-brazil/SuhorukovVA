@@ -21,8 +21,10 @@ namespace CapacitorModel
         {
             if (double.IsNaN(value) || value <= 0)
             {
-                throw new ArgumentNullException("Значение не может быть равно " +
-                    "NaN или быть меньше или равно нулю!");
+                throw new ArgumentNullException($"{value}", 
+                    "Значение не может быть равно NaN " +
+                    "или быть меньше или равно нулю! " +
+                    "Пожалуйста, поверьте значение!\n");
             }
             return value;
         }
@@ -36,7 +38,9 @@ namespace CapacitorModel
         {
             if (interRadius >= exterRadius)
             {
-                throw new ArgumentOutOfRangeException("Внутренний радиус не может " +
+                throw new ArgumentOutOfRangeException($"\nВнешний радиус: {interRadius}" +
+                    $"\nВнутренний радиус: {exterRadius}", 
+                    "Внутренний радиус не может " +
                     "быть больше или равен внешнему радиусу! " +
                     "Пожалуйста, проверьте значения радиусов!\n");
             }

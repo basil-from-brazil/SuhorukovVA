@@ -152,12 +152,15 @@ namespace CapacitorView
                 if (exception is ArgumentNullException ||
                     exception is ArgumentOutOfRangeException)
                 {
-                    MessageBox.Show(exception.Message);
+                    MessageBox.Show(exception.Message + 
+                        "\nОшибка в поле: " + textBox.Name);
                     textBox.BackColor = Color.Red;
                 }
                 else if (exception is FormatException)
                 {
-                    MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
+                    MessageBox.Show("Вы ввели не число! " +
+                        "Проверьте, пожалуйста!\n" + 
+                        "\nОшибка в поле: " + textBox.Name);
                     textBox.BackColor = Color.Red;
                 }
             }
