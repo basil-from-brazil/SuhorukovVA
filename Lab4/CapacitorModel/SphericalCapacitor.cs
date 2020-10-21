@@ -9,6 +9,7 @@ namespace CapacitorModel
     /// <summary>
     /// Класс Сферический конденсатор
     /// </summary>
+    [Serializable]
     public class SphericalCapacitor : CapacitorBase
     {
         /// <summary>
@@ -60,15 +61,16 @@ namespace CapacitorModel
         }
 
         /// <summary>
-        /// Емкость сефрического конденсатора
+        /// Емкость сферического конденсатора
         /// </summary>
         public override double Capacity
         {
             get
             {
-                return 4 * Math.PI * DielectricPermittivity * VACUUMPERMITTIVITY * 
+                return Math.Round(4 * Math.PI * DielectricPermittivity * VACUUMPERMITTIVITY * 
                        InterRadiusOfSphere * ExterRadiusOfSphere / 
-                       (ExterRadiusOfSphere - InterRadiusOfSphere);
+                       (ExterRadiusOfSphere - InterRadiusOfSphere) * 1.0E12, 
+                       2, MidpointRounding.AwayFromZero);
             }
         }
 

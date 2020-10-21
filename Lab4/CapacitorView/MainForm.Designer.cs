@@ -88,6 +88,7 @@
             this.AddRandomCapacitorButton.TabIndex = 3;
             this.AddRandomCapacitorButton.Text = "Случайный конденсатор";
             this.AddRandomCapacitorButton.UseVisualStyleBackColor = true;
+            this.AddRandomCapacitorButton.Click += new System.EventHandler(this.AddRandomCapacitorButton_Click);
             // 
             // SearchCapacitorButton
             // 
@@ -97,6 +98,7 @@
             this.SearchCapacitorButton.TabIndex = 4;
             this.SearchCapacitorButton.Text = "Поиск конденсатора";
             this.SearchCapacitorButton.UseVisualStyleBackColor = true;
+            this.SearchCapacitorButton.Click += new System.EventHandler(this.SearchCapacitorButton_Click);
             // 
             // SaveButton
             // 
@@ -106,6 +108,7 @@
             this.SaveButton.TabIndex = 5;
             this.SaveButton.Text = "Сохранить";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // LoadCapacitor
             // 
@@ -115,6 +118,7 @@
             this.LoadCapacitor.TabIndex = 6;
             this.LoadCapacitor.Text = "Загрузить";
             this.LoadCapacitor.UseVisualStyleBackColor = true;
+            this.LoadCapacitor.Click += new System.EventHandler(this.LoadCapacitor_Click);
             // 
             // MainForm
             // 

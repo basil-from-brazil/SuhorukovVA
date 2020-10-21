@@ -25,7 +25,7 @@ namespace CapacitorView
             dataGridView.DataSource = capacitors;
 
             dataGridView.Columns[0].HeaderText = "Диэлектрическая проницаемость";
-            dataGridView.Columns[1].HeaderText = "Емкость";
+            dataGridView.Columns[1].HeaderText = "Емкость, пкФ";
             dataGridView.Columns[2].HeaderText = "Тип конденсатора";
 
             dataGridView.AutoSizeColumnsMode =

@@ -64,7 +64,7 @@
             this.DielectricPermittivityTextBox.Name = "DielectricPermittivityTextBox";
             this.DielectricPermittivityTextBox.Size = new System.Drawing.Size(100, 20);
             this.DielectricPermittivityTextBox.TabIndex = 2;
-            this.DielectricPermittivityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DielectricPermittivityTextBox_Validating);
+            this.DielectricPermittivityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // CapacitorTypeGroupBox
             // 
@@ -120,7 +120,7 @@
             this.PlateAreaTextBox.Name = "PlateAreaTextBox";
             this.PlateAreaTextBox.Size = new System.Drawing.Size(100, 20);
             this.PlateAreaTextBox.TabIndex = 4;
-            this.PlateAreaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PlateAreaTextBox_Validating);
+            this.PlateAreaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // PlateAreaLabel
             // 
@@ -138,7 +138,7 @@
             this.GapBetweenPlatesTextBox.Name = "GapBetweenPlatesTextBox";
             this.GapBetweenPlatesTextBox.Size = new System.Drawing.Size(100, 20);
             this.GapBetweenPlatesTextBox.TabIndex = 6;
-            this.GapBetweenPlatesTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.GapBetweenPlatesTextBox_Validating);
+            this.GapBetweenPlatesTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // GapBetweenPlatesLabel
             // 
@@ -165,7 +165,7 @@
             this.HeightOfCylinderTextBox.Name = "HeightOfCylinderTextBox";
             this.HeightOfCylinderTextBox.Size = new System.Drawing.Size(100, 20);
             this.HeightOfCylinderTextBox.TabIndex = 9;
-            this.HeightOfCylinderTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HeightOfCylinderTextBox_Validating);
+            this.HeightOfCylinderTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // InterRadiusTextBox
             // 
@@ -173,7 +173,7 @@
             this.InterRadiusTextBox.Name = "InterRadiusTextBox";
             this.InterRadiusTextBox.Size = new System.Drawing.Size(100, 20);
             this.InterRadiusTextBox.TabIndex = 10;
-            this.InterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.InterRadiusTextBox_Validating);
+            this.InterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // InterRadiusLabel
             // 
@@ -199,7 +199,7 @@
             this.ExterRadiusTextBox.Name = "ExterRadiusTextBox";
             this.ExterRadiusTextBox.Size = new System.Drawing.Size(100, 20);
             this.ExterRadiusTextBox.TabIndex = 13;
-            this.ExterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ExterRadiusTextBox_Validating);
+            this.ExterRadiusTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // OKCapacitorButton
             // 

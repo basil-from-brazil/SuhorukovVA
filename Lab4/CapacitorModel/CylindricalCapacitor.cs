@@ -9,6 +9,7 @@ namespace CapacitorModel
     /// <summary>
     /// Класс Цилиндрический конденсатор
     /// </summary>
+    [Serializable]
     public class CylindricalCapacitor : CapacitorBase
     {
         /// <summary>
@@ -86,8 +87,9 @@ namespace CapacitorModel
         {
             get
             {
-                return 2 * Math.PI * DielectricPermittivity * VACUUMPERMITTIVITY * HeightOfCylinder /
-                    (Math.Log(ExterRadiusOfCylinder / InterRadiusOfCylinder));
+                return Math.Round(2 * Math.PI * DielectricPermittivity * VACUUMPERMITTIVITY * HeightOfCylinder /
+                    (Math.Log(ExterRadiusOfCylinder / InterRadiusOfCylinder)) * 1.0E12, 
+                    2, MidpointRounding.AwayFromZero);
             }
              
         }

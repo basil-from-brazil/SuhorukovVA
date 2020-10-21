@@ -52,6 +52,12 @@
     <Compile Include="CapacitorForm.Designer.cs">
       <DependentUpon>CapacitorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapacitorSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapacitorSearchForm.Designer.cs">
+      <DependentUpon>CapacitorSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataCapacitorView.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -61,8 +67,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomCapacitor.cs" />
     <EmbeddedResource Include="CapacitorForm.resx">
       <DependentUpon>CapacitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapacitorSearchForm.resx">
+      <DependentUpon>CapacitorSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

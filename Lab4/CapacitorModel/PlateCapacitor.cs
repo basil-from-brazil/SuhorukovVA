@@ -9,6 +9,7 @@ namespace CapacitorModel
     /// <summary>
     /// Класс Плоский конденсатор
     /// </summary>
+    [Serializable]
     public class PlateCapacitor : CapacitorBase
     {
         /// <summary>
@@ -58,8 +59,8 @@ namespace CapacitorModel
         {
             get
             {
-                return VACUUMPERMITTIVITY * DielectricPermittivity * PlateArea / 
-                       GapBetweenPlates;
+                return Math.Round(VACUUMPERMITTIVITY * DielectricPermittivity * PlateArea / 
+                       GapBetweenPlates * 1.0E12, 2, MidpointRounding.AwayFromZero);
             }
         }
 

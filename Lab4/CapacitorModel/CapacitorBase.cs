@@ -10,12 +10,13 @@ namespace CapacitorModel
     /// <summary>
     /// Базовый класс Конденсатор
     /// </summary>
+    [Serializable]
     public abstract class CapacitorBase
     {
         /// <summary>
         /// Диэлектрическая проницаемость вакуума
         /// </summary>
-        private protected const double VACUUMPERMITTIVITY = 8.85e-12;
+        private protected const double VACUUMPERMITTIVITY = 8.85E-12;
 
         /// <summary>
         /// Диэлектрическая проницаемость диэлектрика конденсатора

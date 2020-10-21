@@ -16,12 +16,13 @@ namespace CapacitorView
     /// </summary>
     public partial class CapacitorForm : Form
     {
-
+        /// <summary>
+        /// Словарь для сопоставления TextBox и Action
+        /// </summary>
         private readonly Dictionary<TextBox, Action<CapacitorBase, double>> _textBoxValidationAction; 
            
-
         /// <summary>
-        /// Инициализация формы
+        /// Инициализация формы и словаря
         /// </summary>
         public CapacitorForm()
         {
@@ -37,8 +38,64 @@ namespace CapacitorView
                             plateCapacitor.PlateArea = doubleValue;
                         }
                     }
+                },
+                {
+                    GapBetweenPlatesTextBox,
+                    (capacitor, doubleValue) =>
+                    {
+                        if (_capacitor is PlateCapacitor plateCapacitor)
+                        {
+                            plateCapacitor.GapBetweenPlates = doubleValue;
+                        }
+                    }
+                },
+                {
+                    HeightOfCylinderTextBox,
+                    (capacitor, doubleValue) =>
+                    {
+                        if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
+                        {
+                            cylindricalCapacitor.HeightOfCylinder = doubleValue;
+                        }
+                    }
+                },
+                {
+                    DielectricPermittivityTextBox,
+                    (capacitor, doubleValue) =>
+                    {
+                        _capacitor.DielectricPermittivity = doubleValue;
+                    }
+                },
+                {
+                    ExterRadiusTextBox,
+                    (capacitor, doubleValue) =>
+                    {
+                        if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
+                        {
+                            cylindricalCapacitor.ExterRadiusOfCylinder = doubleValue;
+                        }
+                        else if (_capacitor is SphericalCapacitor sphericalCapacitor)
+                        {
+                            sphericalCapacitor.ExterRadiusOfSphere = doubleValue;
+                        }
+                    }
+                },
+                {
+                    InterRadiusTextBox,
+                    (capacitor, doubleValue) =>
+                    {
+                        if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
+                        {
+                            cylindricalCapacitor.InterRadiusOfCylinder = doubleValue;
+                        }
+                        else if (_capacitor is SphericalCapacitor sphericalCapacitor)
+                        {
+                            sphericalCapacitor.InterRadiusOfSphere = doubleValue;
+                        }
+                    }
                 }
             };
+
         }
 
         /// <summary>
@@ -79,7 +136,7 @@ namespace CapacitorView
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PlateAreaTextBox_Validating(object sender, CancelEventArgs e)
+        private void TextBox_Validating(object sender, CancelEventArgs e)
         {
             var textBox = sender as TextBox;
             try
@@ -160,36 +217,35 @@ namespace CapacitorView
             switch (capacitor)
             {
                 case PlateCapacitor _:
-                    {
-                        PlateAreaTextBox.Visible = true;
-                        PlateAreaLabel.Visible = true;
-                        GapBetweenPlatesTextBox.Visible = true;
-                        GapBetweenPlatesLabel.Visible = true;
-                        break;
-                    }
+                {
+                    PlateAreaTextBox.Visible = true;
+                    PlateAreaLabel.Visible = true;
+                    GapBetweenPlatesTextBox.Visible = true;
+                    GapBetweenPlatesLabel.Visible = true;
+                    break;
+                }
                 case CylindricalCapacitor _:
-                    {
-                        HeightOfCylinderTextBox.Visible = true;
-                        HeightOfCylinderLabel.Visible = true;
-                        ExterRadiusTextBox.Visible = true;
-                        ExterRadiusLabel.Visible = true;
-                        InterRadiusTextBox.Visible = true;
-                        InterRadiusLabel.Visible = true;
-                        break;
-                    }
+                {
+                    HeightOfCylinderTextBox.Visible = true;
+                    HeightOfCylinderLabel.Visible = true;
+                    ExterRadiusTextBox.Visible = true;
+                    ExterRadiusLabel.Visible = true;
+                    InterRadiusTextBox.Visible = true;
+                    InterRadiusLabel.Visible = true;
+                    break;
+                }
                 case SphericalCapacitor _:
-                    {
-                        ExterRadiusTextBox.Visible = true;
-                        ExterRadiusLabel.Visible = true;
-                        InterRadiusTextBox.Visible = true;
-                        InterRadiusLabel.Visible = true;
-                        break;
-                    }
+                {
+                    ExterRadiusTextBox.Visible = true;
+                    ExterRadiusLabel.Visible = true;
+                    InterRadiusTextBox.Visible = true;
+                    InterRadiusLabel.Visible = true;
+                    break;
+                }
                 default:
-                    {
-                        throw new ArgumentException("The type of capacitor is unknown!");
-                    }
-
+                {
+                    throw new ArgumentException("Тип конденсатора неизвестен!");
+                }
             }
         }
 
@@ -213,152 +269,6 @@ namespace CapacitorView
         {
             _capacitor = new SphericalCapacitor();
             SetVisible(_capacitor);
-        }
-
-        private void GapBetweenPlatesTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            try
-            {
-                TryConvertingToDouble(GapBetweenPlatesTextBox.Text,
-                    out double doubleValue);
-                if (_capacitor is PlateCapacitor plateCapacitor)
-                {
-                    plateCapacitor.GapBetweenPlates = doubleValue;
-                }
-                GapBetweenPlatesTextBox.BackColor = Color.Green;
-            }
-            catch (Exception exception)
-            {
-                if (exception is ArgumentNullException ||
-                    exception is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(exception.Message);
-                    GapBetweenPlatesTextBox.BackColor = Color.Red;
-                }
-                else if (exception is FormatException)
-                {
-                    MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
-                    GapBetweenPlatesTextBox.BackColor = Color.Red;
-                }
-            }
-
-        }
-
-        private void HeightOfCylinderTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            try
-            {
-                TryConvertingToDouble(HeightOfCylinderTextBox.Text,
-                    out double doubleValue);
-                if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
-                {
-                    cylindricalCapacitor.HeightOfCylinder = doubleValue;
-                }
-                HeightOfCylinderTextBox.BackColor = Color.Green;
-            }
-            catch (Exception exception)
-            {
-                if (exception is ArgumentNullException ||
-                    exception is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(exception.Message);
-                    HeightOfCylinderTextBox.BackColor = Color.Red;
-                }
-                else if (exception is FormatException)
-                {
-                    MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
-                    HeightOfCylinderTextBox.BackColor = Color.Red;
-                }
-            }
-        }
-
-        private void ExterRadiusTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            try
-            {
-                TryConvertingToDouble(ExterRadiusTextBox.Text,
-                    out double doubleValue);
-                if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
-                {
-                    cylindricalCapacitor.ExterRadiusOfCylinder = doubleValue;
-                }
-                else if (_capacitor is SphericalCapacitor sphericalCapacitor)
-                {
-                    sphericalCapacitor.ExterRadiusOfSphere = doubleValue;
-                }
-                ExterRadiusTextBox.BackColor = Color.Green;
-            }
-            catch (Exception exception)
-            {
-                if (exception is ArgumentNullException ||
-                    exception is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(exception.Message);
-                    ExterRadiusTextBox.BackColor = Color.Red;
-                }
-                else if (exception is FormatException)
-                {
-                    MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
-                    ExterRadiusTextBox.BackColor = Color.Red;
-                }
-            }
-        }
-
-        private void InterRadiusTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            try
-            {
-                TryConvertingToDouble(InterRadiusTextBox.Text,
-                    out double doubleValue);
-                if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
-                {
-                    cylindricalCapacitor.InterRadiusOfCylinder = doubleValue;
-                }
-                else if (_capacitor is SphericalCapacitor sphericalCapacitor)
-                {
-                    sphericalCapacitor.InterRadiusOfSphere = doubleValue;
-                }
-                InterRadiusTextBox.BackColor = Color.Green;
-            }
-            catch (Exception exception)
-            {
-                if (exception is ArgumentNullException ||
-                    exception is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(exception.Message);
-                    InterRadiusTextBox.BackColor = Color.Red;
-                }
-                else if (exception is FormatException)
-                {
-                    MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
-                    InterRadiusTextBox.BackColor = Color.Red;
-                }
-            }
-        }
-
-        private void DielectricPermittivityTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            try
-            {
-                TryConvertingToDouble(DielectricPermittivityTextBox.Text,
-                    out double doubleValue);
-                _capacitor.DielectricPermittivity = doubleValue;
-                DielectricPermittivityTextBox.BackColor = Color.Green;
-            }
-            catch (Exception exception)
-            {
-                if (exception is ArgumentNullException ||
-                    exception is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show(exception.Message);
-                    DielectricPermittivityTextBox.BackColor = Color.Red;
-                }
-                else if (exception is FormatException)
-                {
-                    MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
-                    DielectricPermittivityTextBox.BackColor = Color.Red;
-                }
-            }
         }
 
         /// <summary>
