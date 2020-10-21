@@ -43,7 +43,7 @@ namespace CapacitorView
                     GapBetweenPlatesTextBox,
                     (capacitor, doubleValue) =>
                     {
-                        if (_capacitor is PlateCapacitor plateCapacitor)
+                        if (capacitor is PlateCapacitor plateCapacitor)
                         {
                             plateCapacitor.GapBetweenPlates = doubleValue;
                         }
@@ -53,7 +53,7 @@ namespace CapacitorView
                     HeightOfCylinderTextBox,
                     (capacitor, doubleValue) =>
                     {
-                        if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
+                        if (capacitor is CylindricalCapacitor cylindricalCapacitor)
                         {
                             cylindricalCapacitor.HeightOfCylinder = doubleValue;
                         }
@@ -63,18 +63,18 @@ namespace CapacitorView
                     DielectricPermittivityTextBox,
                     (capacitor, doubleValue) =>
                     {
-                        _capacitor.DielectricPermittivity = doubleValue;
+                        capacitor.DielectricPermittivity = doubleValue;
                     }
                 },
                 {
                     ExterRadiusTextBox,
                     (capacitor, doubleValue) =>
                     {
-                        if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
+                        if (capacitor is CylindricalCapacitor cylindricalCapacitor)
                         {
                             cylindricalCapacitor.ExterRadiusOfCylinder = doubleValue;
                         }
-                        else if (_capacitor is SphericalCapacitor sphericalCapacitor)
+                        else if (capacitor is SphericalCapacitor sphericalCapacitor)
                         {
                             sphericalCapacitor.ExterRadiusOfSphere = doubleValue;
                         }
@@ -84,11 +84,11 @@ namespace CapacitorView
                     InterRadiusTextBox,
                     (capacitor, doubleValue) =>
                     {
-                        if (_capacitor is CylindricalCapacitor cylindricalCapacitor)
+                        if (capacitor is CylindricalCapacitor cylindricalCapacitor)
                         {
                             cylindricalCapacitor.InterRadiusOfCylinder = doubleValue;
                         }
-                        else if (_capacitor is SphericalCapacitor sphericalCapacitor)
+                        else if (capacitor is SphericalCapacitor sphericalCapacitor)
                         {
                             sphericalCapacitor.InterRadiusOfSphere = doubleValue;
                         }
