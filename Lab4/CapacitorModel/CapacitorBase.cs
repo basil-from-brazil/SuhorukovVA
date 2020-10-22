@@ -34,7 +34,8 @@ namespace CapacitorModel
             }
             set
             {
-                _dielectricPermittivity = ModelChecker.ValueChecker(value);
+                _dielectricPermittivity = ModelChecker.ValueChecker(value, 
+                    nameof(DielectricPermittivity));
             }
         }
 

@@ -16,12 +16,13 @@ namespace CapacitorModel
         /// Проверка корректности значений
         /// </summary>
         /// <param name="value">Передаваемое значение</param>
+        /// <param name="propertyName">Имя свойства</param>
         /// <returns>Проверенное значение</returns>
-        public static double ValueChecker(double value)
+        public static double ValueChecker(double value, string propertyName)
         {
             if (double.IsNaN(value) || value <= 0)
             {
-                throw new ArgumentNullException($"{value}", 
+                throw new ArgumentNullException("\n" + propertyName, 
                     "Значение не может быть равно NaN " +
                     "или быть меньше или равно нулю! " +
                     "Пожалуйста, поверьте значение!\n");
@@ -34,11 +35,13 @@ namespace CapacitorModel
         /// </summary>
         /// <param name="interRadius">Внутренний радиус</param>
         /// <param name="exterRadius">Внешний радиус</param>
-        public static void RadiusChecker(double interRadius, double exterRadius)
+        /// /// <param name="propertyName">Имя свойства</param>
+        public static void RadiusChecker(double interRadius, double exterRadius, 
+            string propertyName)
         {
             if (interRadius >= exterRadius)
             {
-                throw new ArgumentOutOfRangeException($"\nВнешний радиус: {interRadius}" +
+                throw new ArgumentOutOfRangeException("\n" + propertyName + $"\nВнешний радиус: {interRadius}" +
                     $"\nВнутренний радиус: {exterRadius}", 
                     "Внутренний радиус не может " +
                     "быть больше или равен внешнему радиусу! " +

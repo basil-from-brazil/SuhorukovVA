@@ -33,10 +33,12 @@ namespace CapacitorModel
             }
             set
             {
-                _exterRadiusOfSphere = ModelChecker.ValueChecker(value);
+                _exterRadiusOfSphere = ModelChecker.ValueChecker(value, 
+                    nameof(ExterRadiusOfSphere));
                 if (ModelChecker.IsRadiusEntered(InterRadiusOfSphere))
                 {
-                    ModelChecker.RadiusChecker(InterRadiusOfSphere, value);
+                    ModelChecker.RadiusChecker(InterRadiusOfSphere, value, 
+                        nameof(ExterRadiusOfSphere));
                 }
             }
         }
@@ -52,10 +54,12 @@ namespace CapacitorModel
             }
             set
             {
-                _interRadiusOfSphere = ModelChecker.ValueChecker(value);
+                _interRadiusOfSphere = ModelChecker.ValueChecker(value, 
+                    nameof(InterRadiusOfSphere));
                 if (ModelChecker.IsRadiusEntered(ExterRadiusOfSphere))
                 {
-                    ModelChecker.RadiusChecker(value, ExterRadiusOfSphere);
+                    ModelChecker.RadiusChecker(value, ExterRadiusOfSphere, 
+                        nameof(InterRadiusOfSphere));
                 }
             }
         }

@@ -34,8 +34,8 @@
             this.DeleteCapacitorButton = new System.Windows.Forms.Button();
             this.AddRandomCapacitorButton = new System.Windows.Forms.Button();
             this.SearchCapacitorButton = new System.Windows.Forms.Button();
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.LoadCapacitor = new System.Windows.Forms.Button();
+            this.SaveCapacitorButton = new System.Windows.Forms.Button();
+            this.LoadCapacitorButton = new System.Windows.Forms.Button();
             this.CapacitorsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataCapacitorsView)).BeginInit();
             this.SuspendLayout();
@@ -100,33 +100,33 @@
             this.SearchCapacitorButton.UseVisualStyleBackColor = true;
             this.SearchCapacitorButton.Click += new System.EventHandler(this.SearchCapacitorButton_Click);
             // 
-            // SaveButton
+            // SaveCapacitorButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(384, 234);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(85, 45);
-            this.SaveButton.TabIndex = 5;
-            this.SaveButton.Text = "Сохранить";
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            this.SaveCapacitorButton.Location = new System.Drawing.Point(384, 234);
+            this.SaveCapacitorButton.Name = "SaveCapacitorButton";
+            this.SaveCapacitorButton.Size = new System.Drawing.Size(85, 45);
+            this.SaveCapacitorButton.TabIndex = 5;
+            this.SaveCapacitorButton.Text = "Сохранить";
+            this.SaveCapacitorButton.UseVisualStyleBackColor = true;
+            this.SaveCapacitorButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // LoadCapacitor
+            // LoadCapacitorButton
             // 
-            this.LoadCapacitor.Location = new System.Drawing.Point(476, 234);
-            this.LoadCapacitor.Name = "LoadCapacitor";
-            this.LoadCapacitor.Size = new System.Drawing.Size(85, 45);
-            this.LoadCapacitor.TabIndex = 6;
-            this.LoadCapacitor.Text = "Загрузить";
-            this.LoadCapacitor.UseVisualStyleBackColor = true;
-            this.LoadCapacitor.Click += new System.EventHandler(this.LoadCapacitor_Click);
+            this.LoadCapacitorButton.Location = new System.Drawing.Point(476, 234);
+            this.LoadCapacitorButton.Name = "LoadCapacitorButton";
+            this.LoadCapacitorButton.Size = new System.Drawing.Size(85, 45);
+            this.LoadCapacitorButton.TabIndex = 6;
+            this.LoadCapacitorButton.Text = "Загрузить";
+            this.LoadCapacitorButton.UseVisualStyleBackColor = true;
+            this.LoadCapacitorButton.Click += new System.EventHandler(this.LoadCapacitor_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 290);
-            this.Controls.Add(this.LoadCapacitor);
-            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.LoadCapacitorButton);
+            this.Controls.Add(this.SaveCapacitorButton);
             this.Controls.Add(this.SearchCapacitorButton);
             this.Controls.Add(this.AddRandomCapacitorButton);
             this.Controls.Add(this.DeleteCapacitorButton);
@@ -152,8 +152,8 @@
         private System.Windows.Forms.Button DeleteCapacitorButton;
         private System.Windows.Forms.Button AddRandomCapacitorButton;
         private System.Windows.Forms.Button SearchCapacitorButton;
-        private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Button LoadCapacitor;
+        private System.Windows.Forms.Button SaveCapacitorButton;
+        private System.Windows.Forms.Button LoadCapacitorButton;
     }
 }
 

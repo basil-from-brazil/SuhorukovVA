@@ -28,6 +28,7 @@ namespace CapacitorView
         public CapacitorForm()
         {
             InitializeComponent();
+            _exceptionMessagesList = new List<string>();
             _textBoxValidationAction = new Dictionary<TextBox, Action<CapacitorBase, double>>
             {
                 {
@@ -110,6 +111,11 @@ namespace CapacitorView
         private bool _isCorrect;
 
         /// <summary>
+        /// Поле для хранения списка сообщений исключений
+        /// </summary>
+        private List<string> _exceptionMessagesList;
+
+        /// <summary>
         /// Свойство для вывода данных о конденсаторе
         /// </summary>
         public CapacitorBase CapacitorCompleted
@@ -143,25 +149,22 @@ namespace CapacitorView
             try
             {
                 TryConvertingToDouble(textBox.Text,
-                    out double doubleValue);
+                    out double doubleValue, 
+                    textBox.Name);
                 _textBoxValidationAction[textBox].Invoke(_capacitor, doubleValue);
                 textBox.BackColor = Color.Green;
             }
             catch (Exception exception)
             {
-                if (exception is ArgumentNullException ||
-                    exception is ArgumentOutOfRangeException)
+                if (exception is ArgumentException ||
+                    exception is FormatException)
                 {
-                    MessageBox.Show(exception.Message + 
-                        "\nОшибка в поле: " + textBox.Name);
+                    MessageBox.Show(exception.Message);
                     textBox.BackColor = Color.Red;
                 }
-                else if (exception is FormatException)
+                else 
                 {
-                    MessageBox.Show("Вы ввели не число! " +
-                        "Проверьте, пожалуйста!\n" + 
-                        "\nОшибка в поле: " + textBox.Name);
-                    textBox.BackColor = Color.Red;
+                    throw;
                 }
             }
         }
@@ -172,11 +175,24 @@ namespace CapacitorView
         /// </summary>
         /// <param name="textValue">Преобразуемая строка</param>
         /// <param name="doubleValue">Преобразованная строка к типу double</param>
+        /// <param name="textBoxName">Имя TextBox</param>
         /// <returns>Строку, преобразованную к типу double</returns>
-        private double TryConvertingToDouble(string textValue, out double doubleValue)
+        private double TryConvertingToDouble(string textValue, 
+            out double doubleValue, string textBoxName)
         {
-            return doubleValue = double.Parse(textValue.Replace(',','.'), 
-                CultureInfo.InvariantCulture);
+            var isParseOK = double.TryParse(textValue.Replace(',', '.'), 
+                NumberStyles.Float, CultureInfo.InvariantCulture, out _);
+            if (isParseOK)
+            {
+                return doubleValue = double.Parse(textValue.Replace(',', '.'),
+                    CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                throw new FormatException("\nВы ввели не число! " +
+                    "Проверьте, пожалуйста!\n" +
+                    "\nОшибка в: " + textBoxName + "\n");
+            }
         }
 
         /// <summary>
@@ -291,15 +307,30 @@ namespace CapacitorView
             catch (Exception exception)
             {
                 _isCorrect = false;
-                if (exception is ArgumentException)
+                if (exception is ArgumentException ||
+                    exception is FormatException)
                 {
-                    MessageBox.Show(exception.Message);
+                    _exceptionMessagesList.Add(exception.Message);
                 }
-                else if (exception is FormatException)
+                else
                 {
-                    MessageBox.Show("Вы ввели не число! Проверьте, пожалуйста!");
+                    throw;
                 }
             }
+        }
+
+        /// <summary>
+        /// Показать список сообщений исключений в MessageBox
+        /// </summary>
+        /// <param name="exceptionMessagesList">Список сообщений исключений</param>
+        private void ShowExceptionMessages(List<string> exceptionMessagesList)
+        {
+            if (exceptionMessagesList.Any())
+            {
+                MessageBox.Show(string.Join("\n", 
+                    exceptionMessagesList.ToArray()));
+            }
+            exceptionMessagesList.Clear();
         }
 
         /// <summary>
@@ -314,19 +345,22 @@ namespace CapacitorView
                 new Action(() =>
                 {
                     TryConvertingToDouble(PlateAreaTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(PlateAreaTextBox));
                     newPlateCapacitor.PlateArea = doubleValue;
                 }),
                 new Action(() =>
                 {
                     TryConvertingToDouble(GapBetweenPlatesTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof (GapBetweenPlatesTextBox));
                     newPlateCapacitor.GapBetweenPlates = doubleValue;
                 }),
                 new Action(() =>
                 {
                     TryConvertingToDouble(DielectricPermittivityTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(DielectricPermittivityTextBox));
                     newPlateCapacitor.DielectricPermittivity = doubleValue;
                 })
             };
@@ -347,25 +381,29 @@ namespace CapacitorView
                 new Action(() =>
                 {
                     TryConvertingToDouble(HeightOfCylinderTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(HeightOfCylinderTextBox));
                     newCylindricalCapacitor.HeightOfCylinder = doubleValue;
                 }),
                 new Action(() =>
                 {
                     TryConvertingToDouble(ExterRadiusTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(ExterRadiusTextBox));
                     newCylindricalCapacitor.ExterRadiusOfCylinder = doubleValue;
                 }),
                 new Action(() =>
                 {
                     TryConvertingToDouble(InterRadiusTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(InterRadiusTextBox));
                     newCylindricalCapacitor.InterRadiusOfCylinder = doubleValue;
                 }),
                 new Action(() =>
                 {
                     TryConvertingToDouble(DielectricPermittivityTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(DielectricPermittivityTextBox));
                     newCylindricalCapacitor.DielectricPermittivity = doubleValue;
 
                 })
@@ -387,19 +425,22 @@ namespace CapacitorView
                 new Action(() =>
                 {
                     TryConvertingToDouble(ExterRadiusTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(ExterRadiusTextBox));
                     newShericalCapacitor.ExterRadiusOfSphere = doubleValue;
                 }),
                 new Action(() =>
                 {
                     TryConvertingToDouble(InterRadiusTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(InterRadiusTextBox));
                     newShericalCapacitor.InterRadiusOfSphere = doubleValue;
                 }),
                 new Action(() =>
                 {
                     TryConvertingToDouble(DielectricPermittivityTextBox.Text,
-                        out double doubleValue);
+                        out double doubleValue, 
+                        nameof(DielectricPermittivityTextBox));
                     newShericalCapacitor.DielectricPermittivity = doubleValue;
                 })
             };
@@ -418,16 +459,19 @@ namespace CapacitorView
                 case PlateCapacitor _:
                 {
                     _capacitor = GetNewPlateCapacitor();
+                    ShowExceptionMessages(_exceptionMessagesList);
                     break;
                 }
                 case CylindricalCapacitor _:
                 {
                     _capacitor = GetNewCylindricalCapacitor();
+                    ShowExceptionMessages(_exceptionMessagesList);
                     break;
                 }
                 case SphericalCapacitor _:
                 {
                     _capacitor = GetNewSphericalCapacitor();
+                    ShowExceptionMessages(_exceptionMessagesList);
                     break;
                 }
                 default:

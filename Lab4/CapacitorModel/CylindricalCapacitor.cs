@@ -38,7 +38,8 @@ namespace CapacitorModel
             }
             set
             {
-                _heightOfCylinder = ModelChecker.ValueChecker(value);
+                _heightOfCylinder = ModelChecker.ValueChecker(value, 
+                    nameof(HeightOfCylinder));
             }
         }
 
@@ -53,10 +54,12 @@ namespace CapacitorModel
             }
             set
             {
-                _exterRadiusOfCylinder = ModelChecker.ValueChecker(value);
+                _exterRadiusOfCylinder = ModelChecker.ValueChecker(value, 
+                    nameof(ExterRadiusOfCylinder));
                 if (ModelChecker.IsRadiusEntered(InterRadiusOfCylinder))
                 {
-                    ModelChecker.RadiusChecker(InterRadiusOfCylinder, value);
+                    ModelChecker.RadiusChecker(InterRadiusOfCylinder, value, 
+                        nameof(ExterRadiusOfCylinder));
                 }
             }
         }
@@ -72,10 +75,12 @@ namespace CapacitorModel
             }
             set
             {
-                _interRadiusOfCylinder = ModelChecker.ValueChecker(value);
+                _interRadiusOfCylinder = ModelChecker.ValueChecker(value, 
+                    nameof(InterRadiusOfCylinder));
                 if (ModelChecker.IsRadiusEntered(ExterRadiusOfCylinder))
                 {
-                    ModelChecker.RadiusChecker(value,ExterRadiusOfCylinder);
+                    ModelChecker.RadiusChecker(value, ExterRadiusOfCylinder, 
+                        nameof(InterRadiusOfCylinder));
                 }
             }
         }

@@ -33,7 +33,8 @@ namespace CapacitorModel
             }
             set
             {
-                _plateArea = ModelChecker.ValueChecker(value);
+                _plateArea = ModelChecker.ValueChecker(value, 
+                    nameof(PlateArea));
             }
         }
 
@@ -48,7 +49,8 @@ namespace CapacitorModel
             }
             set
             {
-                _gapBetweenPlates = ModelChecker.ValueChecker(value);
+                _gapBetweenPlates = ModelChecker.ValueChecker(value, 
+                    nameof(GapBetweenPlates));
             }
         }
         
