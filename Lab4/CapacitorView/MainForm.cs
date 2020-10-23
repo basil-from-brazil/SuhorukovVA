@@ -18,6 +18,10 @@ namespace CapacitorView
     /// </summary>
     public partial class MainForm : Form
     {
+        
+        /// <summary>
+        /// Лист конденсаторов
+        /// </summary>
         private BindingList<CapacitorBase> _capacitors = new BindingList<CapacitorBase>();
 
         /// <summary>
